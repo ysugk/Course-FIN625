@@ -1,0 +1,674 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Assignment 1
+\end_layout
+
+\begin_layout Author
+Yongseok Kim
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Let 
+\begin_inset Formula $X_{n}=_{i.i.d}\mathbb{N}(\mu,\sigma^{2})$
+\end_inset
+
+ where 
+\begin_inset Formula $\mu=1$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma^{2}=4$
+\end_inset
+
+ and 
+\begin_inset Formula $n=100$
+\end_inset
+
+.
+ The sample log likelihood function for a univariate normal distribution
+ with mean 
+\begin_inset Formula $\mu$
+\end_inset
+
+ and standard deviation 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ is
+\begin_inset Formula 
+\begin{align*}
+l(x_{i},\theta) & =\log p(x_{i},\theta)\\
+ & =-\frac{1}{2}\log2\pi-\frac{1}{2}\log\sigma^{2}-\frac{1}{2\sigma^{2}}(x_{i}-\mu)^{2}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $p(X,\theta)$
+\end_inset
+
+ is a density function of 
+\begin_inset Formula $X=_{d}\mathbb{N}(\mu,\sigma^{2})$
+\end_inset
+
+.
+ The mean log likelihood is defined as
+\begin_inset Formula 
+\[
+\frac{1}{n}\sum_{i=1}^{n}l(x_{i},\theta).
+\]
+
+\end_inset
+
+For the numerical solution of the maximum likelihood estimate from 
+\begin_inset Formula $X_{n}$
+\end_inset
+
+, see Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/figure/HW1/Q2.pdf
+	width 95text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The contour of the mean log-likelihood.
+ 
+\begin_inset Formula $\hat{\mu}_{ML}=1.22$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{\sigma}_{ML}=2.23$
+\end_inset
+
+, and 
+\begin_inset Formula $l(x,\hat{\mu}_{ML},\hat{\sigma}_{ML})=-2.22.$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+First, note that 
+\begin_inset Formula $y_{t}|\varepsilon_{t-1}=_{d}\mathbb{N}(\mu+\theta\varepsilon_{t-1},\sigma^{2})$
+\end_inset
+
+ for all 
+\begin_inset Formula $t$
+\end_inset
+
+ and
+\begin_inset Formula 
+\begin{align*}
+p(y_{t}|\varepsilon_{t-1}) & =\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp(-\frac{1}{2\sigma^{2}}(y_{t}-\mu-\theta\varepsilon_{t-1})^{2})\\
+ & =\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp(-\frac{\varepsilon_{t}^{2}}{2\sigma^{2}}).
+\end{align*}
+
+\end_inset
+
+Second, 
+\begin_inset Formula $\sigma((y_{s})_{s\leq t})=\sigma((\varepsilon_{s})_{s\leq t})$
+\end_inset
+
+ for all 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ Then
+\begin_inset Formula 
+\begin{align*}
+p(y_{1},\cdots,y_{t}) & =p(y_{t}|y_{1},\cdots,y_{t-1})p(y_{1},\cdots,y_{t-1})\\
+ & =p(y_{t}|y_{1},\cdots,y_{t-1})p(y_{t-1}|y_{1},\cdots,y_{t-2})p(y_{1},\cdots,y_{t-2})\\
+ & \cdots\\
+ & =p(y_{t}|y_{1},\cdots,y_{t-1})\times\cdots\times p(y_{2}|y_{1})\times p(y_{1})
+\end{align*}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+l(y_{1},\cdots,y_{t},\mu,\sigma^{2},\theta,)=-\frac{T}{2}\log2\pi-\frac{T}{2}\log\sigma^{2}-\sum_{t=1}^{T}\frac{\varepsilon_{t}^{2}}{2\sigma^{2}}.
+\]
+
+\end_inset
+
+For the estimation, I use a simple grid search method.
+  I randomly generate 10,000 parameters from 
+\begin_inset Formula $\hat{\mu}=_{d}U[0,3]$
+\end_inset
+
+, 
+\begin_inset Formula $\hat{\sigma}^{2}=_{d}U[1,3]$
+\end_inset
+
+, and 
+\begin_inset Formula $\hat{\theta}=_{d}U[0,0.99]$
+\end_inset
+
+ and calculate the log likelihood of the sample given parameters.
+ The result is
+\begin_inset Formula 
+\[
+\hat{\mu}_{ML}=2.996,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\sigma}_{ML}^{2}=2.120,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\theta}_{ML}=0.1320,
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+l(y,
+\]
+
+\end_inset
+
+which is surprisingly bad.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+See Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:6.b"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+\begin_inset Float figure
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/figure/HW1/Q6_b.pdf
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A discretized version of the ODE 
+\begin_inset Formula $\Delta x_{t}=\kappa(\bar{x}-x_{t})\Delta t$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\Delta t=1/12$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa=0.1$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{x}=0.01$
+\end_inset
+
+, 
+\begin_inset Formula $x_{0}=0.1$
+\end_inset
+
+ and 
+\begin_inset Formula $t=250.$
+\end_inset
+
+ 
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:6.b"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+See Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:6.d.i"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:6.d.ii"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ 
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/figure/HW1/Q6_d_i.pdf
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A discretized version of the SDE 
+\begin_inset Formula $\Delta x_{t}=\kappa(\bar{x}-x_{t})\Delta t+\sigma(\sqrt{\Delta t})\varepsilon_{t}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\Delta t=1/12$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa=0.1$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{x}=0.01$
+\end_inset
+
+, 
+\begin_inset Formula $x_{0}=0.1$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma=0.05$
+\end_inset
+
+, 
+\begin_inset Formula $\varepsilon_{t}=_{i.i.d}\mathbb{N}(0,1)$
+\end_inset
+
+ and 
+\begin_inset Formula $t=5.$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:6.d.i"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Graphics
+	filename /Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/figure/HW1/Q6_d_ii.pdf
+	width 95text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+A discretized version of the SDE 
+\begin_inset Formula $\Delta x_{t}=\kappa(\bar{x}-x_{t})\Delta t+\sigma(\sqrt{\Delta t})\varepsilon_{t}$
+\end_inset
+
+.
+ 
+\begin_inset Formula $\Delta t=1/12$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa=0.1$
+\end_inset
+
+, 
+\begin_inset Formula $\bar{x}=0.01$
+\end_inset
+
+, 
+\begin_inset Formula $x_{0}=0.1$
+\end_inset
+
+, 
+\begin_inset Formula $\sigma=0.05$
+\end_inset
+
+, 
+\begin_inset Formula $\varepsilon_{t}=_{i.i.d}\mathbb{N}(0,1)$
+\end_inset
+
+ and 
+\begin_inset Formula $t=100$
+\end_inset
+
+.
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:6.d.ii"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Section*
+\start_of_appendix
+Appendix
+\end_layout
+
+\begin_layout Standard
+For R codes used to produce above results, see 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://github.com/ysugk/Course-FIN625/tree/master/HW/code
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
