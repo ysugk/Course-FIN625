@@ -1,39 +1,61 @@
-library(tidyverse)
 set.seed(2020)
 
-theta <- 0.1
-mu <- 1.5
-sigma_2 <- 1.9
+alpha <- theta <- 0
+beta <- 0.210
+rho <- 0.972
 
-n <- 1000
+mu <- c(0,0)
 
-e_vec <- rnorm(n = n, mean = mu, sd = sqrt(sigma_2))
-lag_e_vec <- append(0, lag(e_vec, 1)[2:1000])
+sigma_u2 <- 0.0030050
+sigma_e2 <- 0.0000108
+sigma_ue <- -0.0001621
 
-Y <- mu + e_vec + theta * lag_e_vec
+Sigma <- matrix(c(sigma_u2, sigma_ue, sigma_ue, sigma_e2), nrow = 2, ncol = 2)
 
-log_likelihood_function <- function(mu, sigma_2, theta, Y) {
-  e <- 0
+calculate_forwardx <- function(x, e){
+  xforward <- theta + rho * x + e
   
-  for (i in 1:n) {
-    eforward = Y[i] - mu - theta * e[i]
-    
-    e <- append(e, eforward)
-  }
-  
-  (-n/2) * log(2*pi) + (-n/2) * log(sigma_2) - 1/(2*sigma_2) * sum((e[1:n + 1])^2)
-  
+  xforward
 }
 
-mu_vec <- runif(10000, min = 0, max = 3)
-sigma_2_vec <- runif(10000, min = 1, max = 3)
-theta_vec <- runif(10000, min = 0, max = 0.99)
+simulate_x <- function(n, x0, e_vec){
+  x_vec <- x0
+  
+  for (i in 1:n) {
+    xforward <- calculate_forwardx(x_vec[i], e_vec[i])
+    
+    x_vec <- append(x_vec, xforward)
+  }
+  
+  x_vec
+}
 
-grid <- tibble(mu = mu_vec,
-               sigma_2 = sigma_2_vec,
-               theta = theta_vec) %>%
-  mutate(likelihood = pmap_dbl(list(mu, sigma_2, theta), log_likelihood_function, Y))
+i <- 1
 
-#' Maximum mean log likelihood value and maximum likelihood estimates.
-MLE <- grid[grid$likelihood == max(grid$likelihood), ]
-knitr::kable(MLE)
+?mvrnorm
+
+simulate <- function(i, n = 840){
+  ue_mat <- MASS::mvrnorm(n, mu, Sigma)
+  x0 <- 0
+  
+  u_vec <- ue_mat[ , 1]
+  e_vec <- ue_mat[ , 2]
+  
+  x_vec <- simulate_x(n, x0, e_vec)[1:n + 1]
+  lag_x_vec <- append(0, x_vec)[1:n]
+  
+  r_vec <- alpha + beta * lag_x_vec + u_vec
+  
+  beta <- sum((lag_x_vec - mean(lag_x_vec)) * (r_vec - mean(r_vec)))/sum((lag_x_vec - mean(lag_x_vec))^2) 
+  rho <- sum((lag_x_vec - mean(lag_x_vec)) * (x_vec - mean(x_vec)))/sum((lag_x_vec - mean(lag_x_vec))^2)
+  
+  tibble(rep = i,
+         beta = beta,
+         rho = rho)
+}
+
+library(tidyverse)
+df <- map_dfr(1:10000, simulate)
+
+mean(df$beta)
+mean(df$rho)

@@ -5,6 +5,9 @@
 \save_transient_properties true
 \origin unavailable
 \textclass article
+\begin_preamble
+\usepackage{hyperref}
+\end_preamble
 \use_default_options true
 \maintain_unincluded_children false
 \language english
@@ -99,6 +102,149 @@ status open
 
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.a"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports summary statistics of the data.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Summary Statistics
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.a"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+In this table, I report number of observations (
+\begin_inset Formula $N$
+\end_inset
+
+), 
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW1/Q1.a.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Let the excess return process 
+\begin_inset Formula $X_{t}=_{i.i.d}\mathbb{N}(\mu,\sigma^{2})$
+\end_inset
+
+ for 
+\begin_inset Formula $t=1,\cdots,T$
+\end_inset
+
+.
+ Then, MLE estimators for 
+\begin_inset Formula $(\mu,\sigma^{2})$
+\end_inset
+
+ yield
+\begin_inset Formula 
+\[
+\hat{\mu}=\frac{1}{T}\sum_{t}x_{t}
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\hat{\sigma}^{2}=\frac{1}{T}\sum_{t}(X_{t}-\hat{\mu})^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+First, since 
+\begin_inset Formula $X=(X_{t})=_{d}\mathbb{N}(\mu\iota,\sigma^{2}I)$
+\end_inset
+
+ , we have
+\begin_inset Formula 
+\begin{align*}
+\begin{bmatrix}\frac{1}{T}\iota'X\\
+(I-P_{\iota})X
+\end{bmatrix} & =_{d}\begin{bmatrix}\frac{1}{T}\iota'\\
+(I-P_{\iota})
+\end{bmatrix}\mathbb{N}(\mu\iota,\sigma^{2}I)\\
+ & =_{d}\mathbb{N}(\begin{bmatrix}\mu\\
+0
+\end{bmatrix},\begin{bmatrix}\sigma^{2}/T & 0\\
+0 & \sigma^{2}(I-P_{\iota})
+\end{bmatrix}
+\end{align*}
+
+\end_inset
+
+Consider a continuous function
+\begin_inset Formula 
+\[
+f(x,y)=\frac{x}{y}
+\]
+
+\end_inset
+
+Since
+\begin_inset Formula 
+\[
+\nabla f(x,y)=\begin{bmatrix}1/y & -x/y^{2}\end{bmatrix}
+\]
+
+\end_inset
+
+is also continuous, by the delta method, we obtain
+\begin_inset Formula 
+\[
+\frac{\mu}{\sigma}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 Let 
 \begin_inset Formula $X_{n}=_{i.i.d}\mathbb{N}(\mu,\sigma^{2})$
@@ -170,7 +316,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -249,14 +395,110 @@ status open
 
 \end_layout
 
+\begin_deeper
 \begin_layout Enumerate
-\begin_inset ERT
-status open
+Define
+\begin_inset Formula 
+\[
+h^{1}(\theta,r_{M,t})=r_{M,t}-\mu
+\]
 
-\begin_layout Plain Layout
+\end_inset
 
-{}
+
+\begin_inset Formula 
+\[
+h^{2}(\theta,r_{M,t})=(r_{M,t}-\mu)^{2}-\sigma^{2}.
+\]
+
+\end_inset
+
+Since the parameters are exactly identified, we set the sample moment conditions
+ to zero
+\begin_inset Formula 
+\[
+\tilde{h}_{T}^{1}(\theta)=\frac{1}{T}\sum r_{M,t}-\hat{\mu}=0,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\tilde{h}_{T}^{2}(\theta)=\frac{1}{T}\sum(r_{M,t}-\hat{\mu})^{2}-\hat{\sigma}^{2}=0.
+\]
+
+\end_inset
+
+Then, we obtain
+\begin_inset Formula 
+\begin{align*}
+\hat{\mu} & =\frac{1}{T}\sum r_{M,t}\\
+ & =0.6590,
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\hat{\sigma}^{2} & =\frac{1}{T}\sum(r_{M,t}-\hat{\mu})^{2}\\
+ & =28.3814
+\end{align*}
+
+\end_inset
+
+
 \end_layout
+
+\begin_layout Enumerate
+Suppose
+\begin_inset Formula 
+\[
+r_{M,t}=_{i.i.d}\mathbb{N}(0,\sigma^{2}).
+\]
+
+\end_inset
+
+Define
+\begin_inset Formula 
+\[
+h(\mu,\sigma^{2},r_{M,t})=\begin{bmatrix}r_{M,t}-\mu\\
+(r_{M,t}-\mu)^{2}-\sigma^{2}
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+First, note that
+\begin_inset Formula 
+\begin{align*}
+x_{t+1} & =\theta+\rho x_{t}+e_{t+1}\\
+ & =\theta+e_{t+1}+\rho(\theta+\rho x_{t-1}+e_{t})\\
+ & =(\theta+\rho\theta)+e_{t+1}+\rho e_{t}+\rho^{2}x_{t-1}\\
+ & =\theta\sum_{s=1}^{t}\rho^{s-1}+\sum_{s=1}^{t+1}\rho^{t+1-s}e_{s}.
+\end{align*}
+
+\end_inset
+
+Second,
+\begin_inset Formula 
+\[
+\mathbb{E}[x_{t}e_{t+1}]
+\]
+
+\end_inset
+
+suggesting 
+\begin_inset Formula 
+\[
+\hat{\rho}_{OLS}>\rho.
+\]
 
 \end_inset
 
@@ -275,8 +517,8 @@ First, note that
  and
 \begin_inset Formula 
 \begin{align*}
-p(y_{t}|\varepsilon_{t-1}) & =\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp(-\frac{1}{2\sigma^{2}}(y_{t}-\mu-\theta\varepsilon_{t-1})^{2})\\
- & =\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp(-\frac{\varepsilon_{t}^{2}}{2\sigma^{2}}).
+p_{\mu,\sigma^{2},\theta}(y_{t}|\varepsilon_{t-1}) & =\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp(-\frac{1}{2\sigma^{2}}(y_{t}-\mu-\theta\varepsilon_{t-1})^{2})\\
+ & =\frac{1}{\sqrt{2\pi\sigma^{2}}}\exp(-\frac{\varepsilon_{t}^{2}}{2\sigma^{2}})
 \end{align*}
 
 \end_inset
@@ -293,7 +535,7 @@ Second,
  Then
 \begin_inset Formula 
 \begin{align*}
-p(y_{1},\cdots,y_{t}) & =p(y_{t}|y_{1},\cdots,y_{t-1})p(y_{1},\cdots,y_{t-1})\\
+p_{\mu,\sigma^{2},\theta}(y_{1},\cdots,y_{t}) & =p(y_{t}|y_{1},\cdots,y_{t-1})p(y_{1},\cdots,y_{t-1})\\
  & =p(y_{t}|y_{1},\cdots,y_{t-1})p(y_{t-1}|y_{1},\cdots,y_{t-2})p(y_{1},\cdots,y_{t-2})\\
  & \cdots\\
  & =p(y_{t}|y_{1},\cdots,y_{t-1})\times\cdots\times p(y_{2}|y_{1})\times p(y_{1})
@@ -304,36 +546,33 @@ p(y_{1},\cdots,y_{t}) & =p(y_{t}|y_{1},\cdots,y_{t-1})p(y_{1},\cdots,y_{t-1})\\
 and
 \begin_inset Formula 
 \[
-l(y_{1},\cdots,y_{t},\mu,\sigma^{2},\theta,)=-\frac{T}{2}\log2\pi-\frac{T}{2}\log\sigma^{2}-\sum_{t=1}^{T}\frac{\varepsilon_{t}^{2}}{2\sigma^{2}}.
+l(y_{1},\cdots,y_{t},\mu,\sigma^{2},\theta,)=-\frac{T}{2}\log2\pi-\frac{T}{2}\log\sigma^{2}-\sum_{t=1}^{T}\frac{\varepsilon_{t}^{2}}{2\sigma^{2}}
 \]
 
 \end_inset
 
-For the estimation, I randomly generate 10,000 parameters from 
-\begin_inset Formula $\hat{\mu}=_{d}U[0,3]$
+where 
+\begin_inset Formula $l$
 \end_inset
 
-, 
-\begin_inset Formula $\hat{\sigma}^{2}=_{d}U[1,3]$
+ is the log likelihood function.
+ For the estimation, I use a simple gradient method.
+ For initial parameter values 
+\begin_inset Formula $\mu=1.9,$
 \end_inset
 
-, and 
-\begin_inset Formula $\hat{\theta}=_{d}U[0,0.99]$
+ 
+\begin_inset Formula $\sigma^{2}=1.7$
 \end_inset
 
- and calculate the log likelihood of the sample given parameters.
- The result is
+ and 
+\begin_inset Formula $\theta=0.2$
+\end_inset
+
+, the result is
 \begin_inset Formula 
 \[
-\hat{\mu}_{ML}=2.996,
-\]
-
-\end_inset
-
-
-\begin_inset Formula 
-\[
-\hat{\sigma}_{ML}^{2}=2.120,
+\hat{\mu}_{ML}=1.460,
 \]
 
 \end_inset
@@ -341,7 +580,15 @@ For the estimation, I randomly generate 10,000 parameters from
 
 \begin_inset Formula 
 \[
-\hat{\theta}_{ML}=0.1320,
+\hat{\sigma}_{ML}^{2}=2.040,
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\theta}_{ML}=0.080,
 \]
 
 \end_inset
@@ -349,12 +596,12 @@ For the estimation, I randomly generate 10,000 parameters from
 and
 \begin_inset Formula 
 \[
-l(y,
+l(y,\hat{\mu}_{ML},\hat{\sigma}_{ML}^{2},\hat{\theta}_{ML})=-1775.47
 \]
 
 \end_inset
 
-
+which is surprisingly bad.
 \end_layout
 
 \begin_layout Enumerate
@@ -373,13 +620,38 @@ status open
 
 \begin_deeper
 \begin_layout Enumerate
-\begin_inset ERT
-status open
+Due to the Ito formula, we have
+\begin_inset Formula 
+\begin{align*}
+d(e^{\kappa t}(x_{t}-\bar{x})) & =\kappa e^{\kappa t}(x_{t}-\bar{x})dt+e^{\kappa t}dx_{t}\\
+ & =\kappa e^{\kappa t}(x_{t}-\bar{x})dt+e^{\kappa t}\kappa(\bar{x}-x_{t})dt\\
+ & =0
+\end{align*}
 
-\begin_layout Plain Layout
+\end_inset
 
-{}
-\end_layout
+It follows that
+\begin_inset Formula 
+\[
+e^{\kappa t}(x_{t}-\bar{x})-(x-\bar{x})=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+x_{t}=\bar{x}+e^{-\kappa t}(x-\bar{x})
+\]
+
+\end_inset
+
+Note that
+\begin_inset Formula 
+\begin{align*}
+\lim_{t\rightarrow\infty}x_{t} & =\bar{x}+(x-\bar{x})\lim_{t\rightarrow\infty}e^{-\kappa t}\\
+ & =\bar{x}
+\end{align*}
 
 \end_inset
 
@@ -464,13 +736,71 @@ name "fig:6.b"
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset ERT
-status open
+Due to the Ito formula, we have
+\begin_inset Formula 
+\begin{align*}
+d(e^{\kappa t}(x_{t}-\bar{x})) & =\kappa e^{\kappa t}(x_{t}-\bar{x})dt+e^{\kappa t}dx_{t}\\
+ & =\kappa e^{\kappa t}(x_{t}-\bar{x})dt+e^{\kappa t}\kappa(\bar{x}-x_{t})dt+e^{\kappa t}\sigma dW_{t}\\
+ & =e^{\kappa t}\sigma dW_{t}
+\end{align*}
 
-\begin_layout Plain Layout
+\end_inset
 
-{}
-\end_layout
+It follows that
+\begin_inset Formula 
+\[
+e^{\kappa t}(x_{t}-\bar{x})-(x-\bar{x})=\sigma\int_{0}^{t}e^{\kappa s}dW_{s}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Rightarrow x_{t}=\bar{x}+e^{-\kappa t}(x-\bar{x})+\sigma\int_{0}^{t}e^{\kappa(s-t)}dW_{s}.
+\]
+
+\end_inset
+
+Then
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}_{t}(x_{s}) & =\bar{x}+e^{-\kappa s}(x-\bar{x})+\mathbb{E}_{t}(\sigma\int_{0}^{s}e^{\kappa(u-s)}dW_{u})\\
+ & =\bar{x}+e^{-\kappa t}(x-\bar{x})+\sigma\int_{0}^{t}e^{\kappa(u-t)}dW_{u}+e^{-\kappa s}(x-\bar{x})-e^{-\kappa t}(x-\bar{x})\\
+ & =x_{t}+(e^{-\kappa s}-e^{-\kappa t})(x-\bar{x}).
+\end{align*}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\begin{align*}
+\text{var}_{t}(x_{s}) & =\mathbb{E}_{t}(\sigma\int_{t}^{s}e^{\kappa(u-s)}dW_{u})^{2}\\
+ & =\sigma^{2}\int_{t}^{s}e^{2\kappa(u-s)}du\\
+ & =\sigma^{2}[\frac{1}{2\kappa}e^{2\kappa(u-s)}]_{t}^{s}\\
+ & =\frac{\sigma^{2}(1-e^{2\kappa(t-s)})}{2\kappa}.
+\end{align*}
+
+\end_inset
+
+Note that for any given 
+\begin_inset Formula $t$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+\lim_{s\rightarrow\infty}\mathbb{E}_{t}(x_{s})=x_{t}+(1-e^{-\kappa t})(x-\bar{x})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\lim_{s\rightarrow\infty}\text{var}_{t}(x_{s}) & =\frac{\sigma^{2}}{2\kappa}-\frac{1}{2\kappa}\lim_{s\rightarrow\infty}e^{2\kappa(t-s)}\\
+ & =\frac{\sigma^{2}}{2\kappa}
+\end{align*}
 
 \end_inset
 
@@ -503,7 +833,7 @@ noprefix "false"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
@@ -574,7 +904,7 @@ name "fig:6.d.i"
 \begin_inset Float figure
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \align center
