@@ -9,11 +9,11 @@
 
 #' Generate random sample
 set.seed(2020)
-X <- rnorm(n = 100, mean = 1, sd = 2)
+x_vec <- rnorm(n = 100, mean = 1, sd = 2)
 
 #' Define mean log likelihood function
-log_likelihood_function <- function(mu, sigma, X) {
-  (-1/2) * log(2*pi) + (-1/2) * log(sigma^2) - 1/(2*sigma^2) * (X - mu)^2
+log_likelihood_function <- function(mu, sigma, x_vec) {
+  (-1/2) * log(2*pi) + (-1/2) * log(sigma^2) - 1/(2*sigma^2) * (x_vec - mu)^2
 }
 
 #' Generate grid
@@ -23,7 +23,7 @@ mu_vec <- seq(from = 0, to = 2, by = 0.01)
 sigma_vec <- seq(from = 1, to = 3, by = 0.01)
 
 grid <- crossing(mu = mu_vec, sigma = sigma_vec) %>%
-  mutate(mean_likelihood = map2_dbl(mu, sigma, function(mu, sigma, X) mean(log_likelihood_function(mu, sigma, X)), X))
+  mutate(mean_likelihood = map2_dbl(mu, sigma, function(mu, sigma, X) mean(log_likelihood_function(mu, sigma, x_vec)), x_vec))
 
 #' Maximum mean log likelihood value and maximum likelihood estimates.
 MLE <- grid[grid$mean_likelihood == max(grid$mean_likelihood), ]

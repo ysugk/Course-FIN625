@@ -22,17 +22,13 @@ simulate_x <- function(n, x0, e_vec){
   x_vec <- x0
   
   for (i in 1:n) {
-    xforward <- calculate_forwardx(x_vec[i], e_vec[i])
+    xforward <- theta + rho * x_vec[i] + e_vec[i]
     
     x_vec <- append(x_vec, xforward)
   }
   
   x_vec
 }
-
-i <- 1
-
-?mvrnorm
 
 simulate <- function(i, n = 840){
   ue_mat <- MASS::mvrnorm(n, mu, Sigma)
@@ -42,7 +38,7 @@ simulate <- function(i, n = 840){
   e_vec <- ue_mat[ , 2]
   
   x_vec <- simulate_x(n, x0, e_vec)[1:n + 1]
-  lag_x_vec <- append(0, x_vec)[1:n]
+  lag_x_vec <- append(x0, x_vec)[1:n]
   
   r_vec <- alpha + beta * lag_x_vec + u_vec
   
@@ -55,7 +51,36 @@ simulate <- function(i, n = 840){
 }
 
 library(tidyverse)
-df <- map_dfr(1:10000, simulate)
+library(moments)
 
-mean(df$beta)
-mean(df$rho)
+df_840 <- map_dfr(1:10000, simulate)
+
+summary_840 <- df_840 %>%
+  select(-rep) %>%
+  gather("param", "value") %>%
+  group_by(param) %>%
+  summarise(n = n(),
+            mean = mean(value),
+            sd = sd(value),
+            skewness = skewness(value),
+            kurtosis = kurtosis(value))
+
+summary_840 %>%
+  as.data.frame() %>%
+  stargazer(type = "text", summary = FALSE, rownames = FALSE, out = "HW/output/tabs/HW1/Q5.a.tex", float = FALSE)
+
+df_240 <- map_dfr(1:10000, simulate, 240)
+
+summary_240 <- df_240 %>%
+  select(-rep) %>%
+  gather("param", "value") %>%
+  group_by(param) %>%
+  summarise(n = n(),
+            mean = mean(value),
+            sd = sd(value),
+            skewness = skewness(value),
+            kurtosis = kurtosis(value))
+
+summary_240 %>%
+  as.data.frame() %>%
+  stargazer(type = "text", summary = FALSE, rownames = FALSE, out = "HW/output/tabs/HW1/Q5.b.tex", float = FALSE)

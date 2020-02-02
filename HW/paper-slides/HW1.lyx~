@@ -381,6 +381,155 @@ status open
 
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab3.a.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ show summary statistics of the excess market returns, SMB, and HML.
+ For OLS estimation results of Equation (1), see Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab.3.a.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab.3.a.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports OLS estimation results of Equation (2).
+ 
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Summary Statistics
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab3.a.1"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW1/Q3.a.summary.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+OLS estimation results of Eq (1) 
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab.3.a.2"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW1/Q3.a.eq1.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+OLS estimation results of Eq (2)
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab.3.a.3"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW1/Q3.a.eq2.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Table and report the OLS estimation results of Equation (1) and (2), respectivel
+y.
+\end_layout
+
+\end_deeper
 \begin_layout Enumerate
 \begin_inset ERT
 status open
@@ -475,30 +624,146 @@ h(\mu,\sigma^{2},r_{M,t})=\begin{bmatrix}r_{M,t}-\mu\\
 
 \end_deeper
 \begin_layout Enumerate
-First, note that
-\begin_inset Formula 
-\begin{align*}
-x_{t+1} & =\theta+\rho x_{t}+e_{t+1}\\
- & =\theta+e_{t+1}+\rho(\theta+\rho x_{t-1}+e_{t})\\
- & =(\theta+\rho\theta)+e_{t+1}+\rho e_{t}+\rho^{2}x_{t-1}\\
- & =\theta\sum_{s=1}^{t}\rho^{s-1}+\sum_{s=1}^{t+1}\rho^{t+1-s}e_{s}.
-\end{align*}
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:5.a"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-Second,
-\begin_inset Formula 
-\[
-\mathbb{E}[x_{t}e_{t+1}]
-\]
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:5.b"
+plural "false"
+caps "false"
+noprefix "false"
 
 \end_inset
 
-suggesting 
-\begin_inset Formula 
-\[
-\hat{\rho}_{OLS}>\rho.
-\]
+ summarise sample distributions of 
+\begin_inset Formula $\hat{\beta}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\rho}$
+\end_inset
+
+ when 
+\begin_inset Formula $T=840$
+\end_inset
+
+ and 
+\begin_inset Formula $T=240$
+\end_inset
+
+, repectively.
+ As we expect from the finite sample properties, 
+\begin_inset Formula $\hat{\beta}$
+\end_inset
+
+ is underestimated (
+\begin_inset Formula $\hat{\beta}<\beta$
+\end_inset
+
+) on average and skewed to the right (positive skewness), while 
+\begin_inset Formula $\hat{\rho}$
+\end_inset
+
+ is overestimated 
+\begin_inset Formula $(\hat{\rho}>\rho)$
+\end_inset
+
+ on average and skewed to the left (negative skewness).
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Summary Statistics when 
+\begin_inset Formula $T=840$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:5.a"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW1/Q5.a.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+ However, since both estimators are consistent, those estimation errors
+ are quite small when sample size 
+\begin_inset Formula $(T)$
+\end_inset
+
+ is large.
+ 
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Summary Statistics when 
+\begin_inset Formula $T=240$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:5.b"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW1/Q5.b.tex"
+
+\end_inset
+
+
+\end_layout
 
 \end_inset
 
@@ -524,7 +789,7 @@ p_{\mu,\sigma^{2},\theta}(y_{t}|\varepsilon_{t-1}) & =\frac{1}{\sqrt{2\pi\sigma^
 \end_inset
 
 Second, 
-\begin_inset Formula $\sigma((y_{s})_{s\leq t})=\sigma((\varepsilon_{s})_{s\leq t})$
+\begin_inset Formula $\sigma((y_{s})_{s\leq t},\mu,\theta)=\sigma((\varepsilon_{s})_{s\leq t})$
 \end_inset
 
  for all 
@@ -535,10 +800,10 @@ Second,
  Then
 \begin_inset Formula 
 \begin{align*}
-p_{\mu,\sigma^{2},\theta}(y_{1},\cdots,y_{t}) & =p(y_{t}|y_{1},\cdots,y_{t-1})p(y_{1},\cdots,y_{t-1})\\
- & =p(y_{t}|y_{1},\cdots,y_{t-1})p(y_{t-1}|y_{1},\cdots,y_{t-2})p(y_{1},\cdots,y_{t-2})\\
+p_{\mu,\sigma^{2},\theta}(y_{1},\cdots,y_{t}) & =p_{\mu,\sigma^{2},\theta}(y_{t}|y_{1},\cdots,y_{t-1})p_{\mu,\sigma^{2},\theta}(y_{1},\cdots,y_{t-1})\\
+ & =p_{\mu,\sigma^{2},\theta}(y_{t}|y_{1},\cdots,y_{t-1})p_{\mu,\sigma^{2},\theta}(y_{t-1}|y_{1},\cdots,y_{t-2})p_{\mu,\sigma^{2},\theta}(y_{1},\cdots,y_{t-2})\\
  & \cdots\\
- & =p(y_{t}|y_{1},\cdots,y_{t-1})\times\cdots\times p(y_{2}|y_{1})\times p(y_{1})
+ & =p_{\mu,\sigma^{2},\theta}(y_{t}|y_{1},\cdots,y_{t-1})\times\cdots\times p_{\mu,\sigma^{2},\theta}(y_{2}|y_{1})\times p_{\mu,\sigma^{2},\theta}(y_{1})
 \end{align*}
 
 \end_inset
@@ -556,8 +821,10 @@ where
 \end_inset
 
  is the log likelihood function.
- For the estimation, I use a simple gradient method.
- For initial parameter values 
+ Based on the above discussion, I conduct a Monte Carlo simulation and numerical
+ly estimate MLE.
+ For a numerical estimation, I use a simple gradient method.
+ Using initial parameter values 
 \begin_inset Formula $\mu=1.9,$
 \end_inset
 
@@ -569,7 +836,7 @@ where
 \begin_inset Formula $\theta=0.2$
 \end_inset
 
-, the result is
+, the results from the estimation is
 \begin_inset Formula 
 \[
 \hat{\mu}_{ML}=1.460,
@@ -601,7 +868,7 @@ l(y,\hat{\mu}_{ML},\hat{\sigma}_{ML}^{2},\hat{\theta}_{ML})=-1775.47
 
 \end_inset
 
-which is surprisingly bad.
+which is quite reasonable.
 \end_layout
 
 \begin_layout Enumerate
