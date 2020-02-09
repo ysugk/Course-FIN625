@@ -362,7 +362,7 @@ Assume
 and by the CLT
 \begin_inset Formula 
 \[
-\sqrt{n}(\hat{\mu}-\mu)\approx_{d}\mathbb{N}(0,\sigma^{2})
+\sqrt{T}(\hat{\mu}-\mu)\approx_{d}\mathbb{N}(0,\sigma^{2})
 \]
 
 \end_inset
@@ -383,7 +383,20 @@ f_{\sigma^{2}}(x)=\frac{x}{\sqrt{\sigma^{2}}}
 
 \end_inset
 
-Then, by the Delta method, we have
+and first order derivative of 
+\begin_inset Formula $f$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+df_{\sigma^{2}}(x)=1/\sqrt{\sigma^{2}}
+\]
+
+\end_inset
+
+which is also continuous.
+ Then, by the Delta method, we have
 \begin_inset Formula 
 \begin{align*}
 \frac{\hat{\mu}}{\sigma}-\frac{\mu}{\sigma} & \approx_{d}\frac{1}{\sqrt{\sigma^{2}}}\mathbb{N}(0,\sigma^{2}/T)\\
@@ -417,7 +430,7 @@ The numerical Delta method is following.
  Let
 \begin_inset Formula 
 \[
-Df_{\sigma^{2}}(x)=\frac{f_{\sigma^{2}}(x+h)-f_{\sigma^{2}}(x-h)}{2h}
+df_{\sigma^{2}}(x)=\frac{f_{\sigma^{2}}(x+h)-f_{\sigma^{2}}(x-h)}{2h}
 \]
 
 \end_inset
@@ -589,7 +602,13 @@ noprefix "false"
 \end_inset
 
  show summary statistics of the excess market returns, SMB, and HML.
- For OLS estimation results of Equation (1), see Table 
+ Three portfolios yield positive average returns.
+ Measuring performances by the Sharpe ratio, the excess returns do the best
+ during the sample period, followed by HML.
+\end_layout
+
+\begin_layout Enumerate
+For OLS estimation results of Equation (1), see Table 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "tab:3.a.2"
@@ -745,7 +764,7 @@ noprefix "false"
 \begin_inset Formula $t$
 \end_inset
 
--statstics are greater than (a).
+-statstics are greater than (b).
 \begin_inset Float table
 wide false
 sideways false
@@ -899,7 +918,7 @@ noprefix "false"
 \begin_inset Formula $p$
 \end_inset
 
--values are greater than (b) since Wald statistics do not correct conditional
+-values are different from (c) since Wald statistics do not correct conditional
  heteroskedasticity.
  However, Wald statistics can test a joint hypothesis like Equation (5),
  which cannot be done by 
@@ -1287,22 +1306,19 @@ X=\begin{bmatrix}1 & x_{0}\\
 Then
 \begin_inset Formula 
 \[
-\hat{\rho}=\rho+(X'X)^{-1}\sum_{t=1}^{T}x_{t-1}e_{t}
+\begin{bmatrix}\hat{\theta}\\
+\hat{\rho}
+\end{bmatrix}=\begin{bmatrix}\theta\\
+\rho
+\end{bmatrix}+(X'X)^{-1}\begin{bmatrix}\sum_{t=1}^{T}e_{t}\\
+\sum_{t=1}^{T}x_{t-1}e_{t}
+\end{bmatrix}
 \]
 
 \end_inset
 
-and
-\begin_inset Formula 
-\begin{align*}
-\mathbb{E}\hat{\rho} & =\rho+\mathbb{E}[\mathbb{E}[(X'X)^{-1}\sum_{t=1}^{T}x_{t-1}e_{t}|X]]\\
- & =\rho+\mathbb{E}[(X'X)^{-1}\sum_{t=1}^{T}\mathbb{E}[x_{t-1}e_{t}|X]]
-\end{align*}
-
-\end_inset
-
 Note that given 
-\begin_inset Formula $\sigma(X)=\sigma((x_{t})_{t\leq T-1}$
+\begin_inset Formula $\sigma(X)=\sigma((x_{t})_{t\leq T-1})$
 \end_inset
 
 ,
@@ -1345,9 +1361,21 @@ However, we have a consistency of
  from
 \begin_inset Formula 
 \begin{align*}
-\lim_{T\rightarrow\infty}\hat{\rho} & =\rho+(\frac{1}{T}X'X)^{-1}\frac{1}{T}\sum_{t=1}^{T}x_{t-1}e_{t}\\
- & \rightarrow_{p}\rho+(\mathbb{E}[X'X])^{-1}\mathbb{E}[x_{t-1}e_{t}]\\
- & =\rho
+\lim_{T\rightarrow\infty}\begin{bmatrix}\hat{\theta}\\
+\hat{\rho}
+\end{bmatrix} & =\begin{bmatrix}\theta\\
+\rho
+\end{bmatrix}+(\frac{1}{T}X'X)^{-1}\begin{bmatrix}\frac{1}{T}\sum_{t=1}^{T}e_{t}\\
+\frac{1}{T}\sum_{t=1}^{T}x_{t-1}e_{t}
+\end{bmatrix}\\
+ & \rightarrow_{p}\begin{bmatrix}\theta\\
+\rho
+\end{bmatrix}+(\mathbb{E}[X'X])^{-1}\begin{bmatrix}\mathbb{E}e_{t}\\
+\mathbb{E}[x_{t-1}e_{t}]
+\end{bmatrix}\\
+ & =\begin{bmatrix}\theta\\
+\rho
+\end{bmatrix}
 \end{align*}
 
 \end_inset
@@ -1366,6 +1394,14 @@ since
 
 \end_inset
 
+and
+\begin_inset Formula 
+\[
+\mathbb{E}[x_{t-1}e_{t}]=0
+\]
+
+\end_inset
+
 Next, define
 \begin_inset Formula 
 \[
@@ -1380,17 +1416,14 @@ r_{T}
 Then
 \begin_inset Formula 
 \[
-\hat{\beta}=\beta+(X'X)^{-1}\sum_{t=1}^{T}x_{t-1}u_{t}
+\begin{bmatrix}\hat{\alpha}\\
+\hat{\beta}
+\end{bmatrix}=\begin{bmatrix}\alpha\\
+\beta
+\end{bmatrix}+(X'X)^{-1}\begin{bmatrix}\sum_{t=1}^{T}u_{t}\\
+\sum_{t=1}^{T}x_{t-1}u_{t}
+\end{bmatrix}
 \]
-
-\end_inset
-
-and
-\begin_inset Formula 
-\begin{align*}
-\mathbb{E}\hat{\beta} & =\beta+\mathbb{E}[\mathbb{E}[(X'X)^{-1}\sum_{t=1}^{T}x_{t-1}u_{t}|X]]\\
- & =\beta+\mathbb{E}[(X'X)^{-1}\sum_{t=1}^{T}\mathbb{E}[x_{t-1}u_{t}|X]]
-\end{align*}
 
 \end_inset
 
@@ -1425,9 +1458,21 @@ Similarly, we have a consistency of
  from
 \begin_inset Formula 
 \begin{align*}
-\lim_{T\rightarrow\infty}\hat{\beta} & =\beta+(\frac{1}{T}X'X)^{-1}\frac{1}{T}\sum_{t=1}^{T}x_{t-1}u_{t}\\
- & \rightarrow_{p}\beta+(\mathbb{E}[X'X])^{-1}\mathbb{E}[x_{t-1}u_{t}]\\
- & =\beta
+\lim_{T\rightarrow\infty}\begin{bmatrix}\hat{\alpha}\\
+\hat{\beta}
+\end{bmatrix} & =\begin{bmatrix}\hat{\alpha}\\
+\hat{\beta}
+\end{bmatrix}+(\frac{1}{T}X'X)^{-1}\begin{bmatrix}\frac{1}{T}\sum_{t=1}^{T}u_{t}\\
+\frac{1}{T}\sum_{t=1}^{T}x_{t-1}u_{t}
+\end{bmatrix}\\
+ & \rightarrow_{p}\begin{bmatrix}\alpha\\
+\beta
+\end{bmatrix}+(\mathbb{E}[X'X])^{-1}\begin{bmatrix}\mathbb{E}[u_{t}]\\
+\mathbb{E}[x_{t-1}u_{t}]
+\end{bmatrix}\\
+ & =\begin{bmatrix}\alpha\\
+\beta
+\end{bmatrix}
 \end{align*}
 
 \end_inset
@@ -1672,7 +1717,7 @@ ly estimate MLE.
 
 \begin_inset Formula 
 \[
-\hat{\theta}_{ML}=0.080,
+\hat{\theta}_{ML}=0.0798,
 \]
 
 \end_inset
