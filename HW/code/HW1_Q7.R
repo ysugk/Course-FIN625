@@ -1,12 +1,14 @@
 library(tidyverse)
 library(ggthemes)
 
-# b)
+#' b.
+#' Set-up parameters
 dt <- 1/12
 k <- 0.1
 xbar <- 0.01
 x0 <- 0.1
 
+#' Define Markov chain
 calculate_xforward <- function(x) {
   dx <- k * (xbar - x) * dt
   xforward <- x + dx
@@ -14,13 +16,15 @@ calculate_xforward <- function(x) {
   xforward
 } 
 
+#' Simulation
 simulate_xvec <- function(x0, n) {
-  x_vec <- x0
+  x_vec <- vector(length = n + 1)
+  x_vec[1] <- x0
   
   for (i in 1:n) {
     xforward <- calculate_xforward(x_vec[i])
     
-    x_vec <- append(x_vec, xforward)
+    x_vec[i + 1] <- xforward
   }
 
   x_vec
@@ -40,7 +44,8 @@ tibble(t = dt*(1:length(x_vec) - 1),
 
 ggsave("Q6_b.pdf", path = "HW/output/figure/HW1/")
 
-# d)
+#' d.
+#' Set-up random seed and parameters
 set.seed(2020)
 
 dt <- 1/12
@@ -49,6 +54,7 @@ xbar <- 0.01
 x0 <- 0.1
 sigma <- 0.05
 
+#' Define Markov chain
 calculate_xforward <- function(x, e) {
   dx <- k * (xbar - x) * dt + sigma * (dt)^(1/2) * e
   xforward <- x + dx
@@ -56,20 +62,23 @@ calculate_xforward <- function(x, e) {
   xforward
 } 
 
+
 simulate_xvec <- function(x0, n) {
-  x_vec <- x0
+  x_vec <- vector(length = n + 1)
+  x_vec[1] <- x0
+  
   e_vec <- rnorm(n, mean = 0, sd = 1)
   
   for (i in 1:n) {
     xforward <- calculate_xforward(x_vec[i], e_vec[i])
     
-    x_vec <- append(x_vec, xforward)
+    x_vec[i + 1] <- xforward
   }
   
   x_vec
 }
 
-# i)
+#' i.
 x_vec <- simulate_xvec(x0, 5/dt)
 
 tibble(t = dt*(1:length(x_vec) - 1),
@@ -84,7 +93,7 @@ tibble(t = dt*(1:length(x_vec) - 1),
 
 ggsave("Q6_d_i.pdf", path = "HW/output/figure/HW1/")
 
-# ii)
+# ii.
 x_vec <- simulate_xvec(x0, 100/dt)
 
 tibble(t = dt*(1:length(x_vec) - 1),

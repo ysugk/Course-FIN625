@@ -1,30 +1,35 @@
 library(tidyverse)
 set.seed(2020)
 
+#' Set parameters
 theta <- 0.1
 mu <- 1.5
 sigma_2 <- 1.9
 
 n <- 1000
 
+#' Generate data 
 e_vec <- rnorm(n = n, mean = 0, sd = sqrt(sigma_2))
 lag_e_vec <- append(0, lag(e_vec, 1)[2:1000])
 
 Y <- mu + e_vec + theta * lag_e_vec
 
+#' Define loglikelihood function
 log_likelihood_function <- function(mu_hat, sigma_2_hat, theta_hat) {
-  e_hat <- 0
+  e_hat <- vector(length = n + 1)
+  e_hat[1] <- 0
   
   for (i in 1:n) {
     eforward <- Y[i] - mu_hat - theta_hat * e_hat[i]
     
-    e_hat <- append(e_hat, eforward)
+    e_hat[i + 1] <- eforward
   }
   
   (-n/2) * log(2*pi) + (-n/2) * log(sigma_2_hat) - 1/(2*sigma_2_hat) * sum((e_hat[1:n + 1])^2)
   
 }
 
+#' Solver
 optimize <- function(f, start, h) {
   p <- start
   
@@ -36,7 +41,7 @@ optimize <- function(f, start, h) {
   g <- c(1, 1, 1)
   i <- 1
   
-  while (sum(abs(g) >= 5e-2) != 0) {
+  while (sum(abs(g) >= 1e-2) != 0) {
     
     print(paste0("Number of interation is ", i))
     
@@ -61,7 +66,7 @@ optimize <- function(f, start, h) {
     g <- c(g1, g2, g3)
     print(paste0("Gradient is ", g))
     
-    update <- c(if_else(abs(g1) >= 1, 1e-3, 1e-4) * sign(g1), if_else(abs(g2) >= 1, 1e-3, 1e-4) * sign(g2), if_else(abs(g3) >= 1, 1e-3, 1e-4) * sign(g3))
+    update <- c(if_else(abs(g1) >= 1, 1e-3, 1e-5) * sign(g1), if_else(abs(g2) >= 1, 1e-3, 1e-5) * sign(g2), if_else(abs(g3) >= 1, 1e-3, 1e-5) * sign(g3))
     
     p <- p + update
     print(paste0(" mu: ", p[1], " sigma2:", p[2], " theta: ", p[3]))
@@ -71,7 +76,9 @@ optimize <- function(f, start, h) {
   df
 }
 
-sim <- optimize(log_likelihood_function, start = c(1.9, 1.7, 0.2), h = 1e-5)
+#' Solve
+sim <- optimize(log_likelihood_function, start = c(1.9, 1.7, 0.2), h = 1e-6)
 
+#' MLE
 sim %>%
   slice(n())

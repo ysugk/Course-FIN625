@@ -1,12 +1,3 @@
-#' ---
-#' title: ""
-#' author: ""
-#' date: ""
-#' output: pdf_document
-#' ---
-#' 
-
-
 #' Generate random sample
 set.seed(2020)
 x_vec <- rnorm(n = 100, mean = 1, sd = 2)
