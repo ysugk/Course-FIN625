@@ -443,7 +443,7 @@ for sufficiently small
  Then, we may approximate
 \begin_inset Formula 
 \begin{align*}
-\text{se}(\frac{\hat{\mu}}{\hat{\sigma}}) & \approx\sqrt{\frac{\hat{\sigma}^{2}}{T}Df_{\hat{\sigma}^{2}}(\hat{\mu})^{2}}\\
+\text{se}(\frac{\hat{\mu}}{\hat{\sigma}}) & \approx\sqrt{\frac{\hat{\sigma}^{2}}{T}df_{\hat{\sigma}^{2}}(\hat{\mu})^{2}}\\
  & =0.001
 \end{align*}
 

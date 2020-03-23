@@ -140,11 +140,13 @@ name "tab:1.a"
 \end_layout
 
 \begin_layout Plain Layout
-In this table, I report number of observations (
-\begin_inset Formula $N$
-\end_inset
-
-), 
+In this table, I report number of observations (N), sample mean (Mean),
+ standard deviation (St.
+ Dev.), minimum (Min), the first quartile (Pctl(25)), median (Median), the
+ third quartile (Pctl(75)), and maximum (Max) of each variables.
+ Mkt-RF denotes the excess market returns, SMB and HML denote size and book-to-m
+arket factor from Fama and French (1993), and RF denotes monthly risk-free
+ rates.
 \end_layout
 
 \begin_layout Plain Layout
@@ -172,7 +174,19 @@ Let the excess return process
 \end_inset
 
 .
- Then, MLE estimators for 
+ Then, we have the log likelihood function of 
+\begin_inset Formula $X$
+\end_inset
+
+
+\begin_inset Formula 
+\[
+l(\mu,\sigma)=-\frac{n}{2}\log2\pi-\frac{n}{2}\log\sigma^{2}-\frac{1}{2\sigma^{2}}(X-\mu\iota)'(X-\mu\iota)
+\]
+
+\end_inset
+
+Then, the MLE estimators for 
 \begin_inset Formula $(\mu,\sigma^{2})$
 \end_inset
 
@@ -192,52 +206,246 @@ and
 
 \end_inset
 
+Note that
+\begin_inset Formula 
+\begin{align*}
+\hat{\mu} & =\frac{1}{T}\iota'X\\
+ & =_{d}\frac{1}{T}\iota'\mathbb{N}(\mu\iota,\sigma^{2}I)\\
+ & =\mathbb{N}(\mu,\sigma^{2}/T)
+\end{align*}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\mathbb{E}(X_{i}-\mu)^{2}=\sigma^{2}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{var}(X_{i}-\mu)^{2}=\mathbb{E}(X_{i}-\mu)^{4}-\sigma^{4}=2\sigma^{4}
+\]
+
+\end_inset
+
+imply
+\begin_inset Formula 
+\begin{align*}
+\sqrt{T}(\hat{\sigma}^{2}-\sigma^{2}) & =\sqrt{T}(\frac{1}{T}\sum_{t}(X_{t}-\mu)^{2}-\sigma^{2}-(\mu-\hat{\mu})^{2}\big)\\
+ & =\frac{1}{\sqrt{T}}\sum_{t}\big((X_{t}-\mu)^{2}-\sigma^{2}\big)-\frac{1}{\sqrt{T}}\big(\sqrt{T}(\mu-\hat{\mu})\big)^{2}\\
+ & \rightarrow_{d}\mathbb{N}(0,2\sigma^{4})
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Rightarrow\hat{\sigma}^{2}\approx_{d}\mathbb{N}(\sigma^{2},\frac{2\sigma^{4}}{T})
+\]
+
+\end_inset
+
+for large 
+\begin_inset Formula $T$
+\end_inset
+
+.
+ Since
+\begin_inset Formula 
+\begin{align*}
+\hat{\sigma}^{2} & =\frac{1}{T}\sum_{t}(X_{t}-\hat{\mu})^{2}\\
+ & =\frac{1}{T}\sum_{t}(X_{t}-\mu)^{2}-(\mu-\hat{\mu})^{2}\\
+ & \rightarrow_{p}\mathbb{E}(X_{t}-\mu)^{2}\\
+ & =\sigma^{2}
+\end{align*}
+
+\end_inset
+
+by the WLLN, we may approximate
+\begin_inset Formula 
+\[
+\text{var}(\hat{\mu})\approx\hat{\sigma}^{2}/T
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\text{var}(\hat{\sigma}^{2})\approx2(\hat{\sigma}^{2})^{2}/T
+\]
+
+\end_inset
+
+Finally, from the data, we obtain
+\begin_inset Formula 
+\[
+\hat{\mu}=0.659
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\sigma}^{2}=28.381
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{var}(\hat{\mu})\approx0.026
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{se}(\hat{\mu})\approx0.160
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{var}(\hat{\sigma}^{2})\approx1.454
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{se}(\hat{\sigma}^{2})\approx1.206
+\]
+
+\end_inset
+
 
 \end_layout
 
 \begin_layout Enumerate
-First, since 
-\begin_inset Formula $X=(X_{t})=_{d}\mathbb{N}(\mu\iota,\sigma^{2}I)$
+Assume 
+\begin_inset Formula $(X_{t})$
 \end_inset
 
- , we have
+ is i.i.d.
+ distributed with 
+\begin_inset Formula $\mathbb{E}X_{t}=\mu$
+\end_inset
+
+ and 
+\begin_inset Formula $\text{var}(X_{t})=\sigma^{2}$
+\end_inset
+
+.
+ We have, by the WLLN, 
 \begin_inset Formula 
 \begin{align*}
-\begin{bmatrix}\frac{1}{T}\iota'X\\
-(I-P_{\iota})X
-\end{bmatrix} & =_{d}\begin{bmatrix}\frac{1}{T}\iota'\\
-(I-P_{\iota})
-\end{bmatrix}\mathbb{N}(\mu\iota,\sigma^{2}I)\\
- & =_{d}\mathbb{N}(\begin{bmatrix}\mu\\
-0
-\end{bmatrix},\begin{bmatrix}\sigma^{2}/T & 0\\
-0 & \sigma^{2}(I-P_{\iota})
-\end{bmatrix}
+\hat{\sigma}^{2} & =\frac{1}{T}\sum_{t}(X_{t}-\hat{\mu})^{2}\\
+ & =\frac{1}{T}\sum_{t}(X_{t}-\mu)^{2}-(\hat{\mu}-\mu)^{2}\\
+ & \rightarrow_{p}\mathbb{E}(X_{t}-\mu)^{2}\\
+ & =\sigma^{2}
 \end{align*}
+
+\end_inset
+
+and by the CLT
+\begin_inset Formula 
+\[
+\sqrt{T}(\hat{\mu}-\mu)\approx_{d}\mathbb{N}(0,\sigma^{2})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Rightarrow\hat{\mu}\approx_{d}\mathbb{N}(\mu,\sigma^{2}/T)
+\]
 
 \end_inset
 
 Consider a continuous function
 \begin_inset Formula 
 \[
-f(x,y)=\frac{x}{y}
+f_{\sigma^{2}}(x)=\frac{x}{\sqrt{\sigma^{2}}}
 \]
 
 \end_inset
 
-Since
+and first order derivative of 
+\begin_inset Formula $f$
+\end_inset
+
+
 \begin_inset Formula 
 \[
-\nabla f(x,y)=\begin{bmatrix}1/y & -x/y^{2}\end{bmatrix}
+df_{\sigma^{2}}(x)=1/\sqrt{\sigma^{2}}
 \]
 
 \end_inset
 
-is also continuous, by the delta method, we obtain
+which is also continuous.
+ Then, by the Delta method, we have
+\begin_inset Formula 
+\begin{align*}
+\frac{\hat{\mu}}{\sigma}-\frac{\mu}{\sigma} & \approx_{d}\frac{1}{\sqrt{\sigma^{2}}}\mathbb{N}(0,\sigma^{2}/T)\\
+ & =\mathbb{N}(0,\frac{1}{T})
+\end{align*}
+
+\end_inset
+
+Finally, since 
+\begin_inset Formula $\hat{\sigma}^{2}=\sigma^{2}+o_{p}(1)$
+\end_inset
+
+, we have
 \begin_inset Formula 
 \[
-\frac{\mu}{\sigma}
+\frac{\hat{\mu}}{\hat{\sigma}}-\frac{\mu}{\sigma}\approx_{d}\mathbb{N}(0,\frac{1}{T})
 \]
+
+\end_inset
+
+Hence, we may approximate
+\begin_inset Formula 
+\begin{align*}
+\text{se}(\frac{\hat{\mu}}{\hat{\sigma}}) & \approx1/T\\
+ & =0.001
+\end{align*}
+
+\end_inset
+
+The numerical Delta method is following.
+ Let
+\begin_inset Formula 
+\[
+df_{\sigma^{2}}(x)=\frac{f_{\sigma^{2}}(x+h)-f_{\sigma^{2}}(x-h)}{2h}
+\]
+
+\end_inset
+
+for sufficiently small 
+\begin_inset Formula $h$
+\end_inset
+
+.
+ Then, we may approximate
+\begin_inset Formula 
+\begin{align*}
+\text{se}(\frac{\hat{\mu}}{\hat{\sigma}}) & \approx\sqrt{\frac{\hat{\sigma}^{2}}{T}Df_{\hat{\sigma}^{2}}(\hat{\mu})^{2}}\\
+ & =0.001
+\end{align*}
 
 \end_inset
 
@@ -386,7 +594,7 @@ status open
 Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab3.a.1"
+reference "tab:3.a.1"
 plural "false"
 caps "false"
 noprefix "false"
@@ -394,10 +602,16 @@ noprefix "false"
 \end_inset
 
  show summary statistics of the excess market returns, SMB, and HML.
- For OLS estimation results of Equation (1), see Table 
+ Three portfolios yield positive average returns.
+ Measuring performances by the Sharpe ratio, the excess returns do the best
+ during the sample period, followed by HML.
+\end_layout
+
+\begin_layout Enumerate
+For OLS estimation results of Equation (1), see Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab.3.a.2"
+reference "tab:3.a.2"
 plural "false"
 caps "false"
 noprefix "false"
@@ -408,7 +622,7 @@ noprefix "false"
  Table 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "tab.3.a.3"
+reference "tab:3.a.3"
 plural "false"
 caps "false"
 noprefix "false"
@@ -435,7 +649,7 @@ Summary Statistics
 
 \begin_inset CommandInset label
 LatexCommand label
-name "tab3.a.1"
+name "tab:3.a.1"
 
 \end_inset
 
@@ -455,7 +669,7 @@ filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW
 \begin_inset Float table
 wide false
 sideways false
-status open
+status collapsed
 
 \begin_layout Plain Layout
 \align center
@@ -470,7 +684,7 @@ OLS estimation results of Eq (1)
 
 \begin_inset CommandInset label
 LatexCommand label
-name "tab.3.a.2"
+name "tab:3.a.2"
 
 \end_inset
 
@@ -505,7 +719,7 @@ OLS estimation results of Eq (2)
 
 \begin_inset CommandInset label
 LatexCommand label
-name "tab.3.a.3"
+name "tab:3.a.3"
 
 \end_inset
 
@@ -525,8 +739,232 @@ filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW
 \end_layout
 
 \begin_layout Enumerate
-Table and report the OLS estimation results of Equation (1) and (2), respectivel
-y.
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.b.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ and 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.b.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ report the OLS estimation results of Equation (1) and (2), respectively.
+ Standard errors are smaller and 
+\begin_inset Formula $t$
+\end_inset
+
+-statstics are greater than (b).
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+OLS estimation results of Eq (1) with White (1980) standard errors 
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.b.1"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW1/Q3.b.eq1.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+OLS estimation results of Eq (2) with White (1980) standard errors
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.b.2"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW1/Q3.b.eq2.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Constructing Wald statistics for the null hypotheses from Equation (3) and
+ (4) is
+\begin_inset Formula 
+\[
+W=\frac{(RSS_{1}-RSS_{0})/l}{RSS_{0}/(n-k)}=_{d}F(l,n-k)
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $l$
+\end_inset
+
+ is number of restrictions, 
+\begin_inset Formula $n$
+\end_inset
+
+ is number of observations, and 
+\begin_inset Formula $k$
+\end_inset
+
+ is number of regressors.
+ For Equation (5), stacking Equation (1) and (2) yields
+\begin_inset Formula 
+\[
+\begin{bmatrix}r_{SMB}\\
+r_{HML}
+\end{bmatrix}=\alpha_{SMB}\begin{bmatrix}\iota\\
+0
+\end{bmatrix}+\alpha_{HML}\begin{bmatrix}0\\
+\iota
+\end{bmatrix}+\beta_{SMB}\begin{bmatrix}r_{M}\\
+0
+\end{bmatrix}+\beta_{HML}\begin{bmatrix}0\\
+r_{M}
+\end{bmatrix}+\begin{bmatrix}\epsilon_{SMB}\\
+\epsilon_{HML}
+\end{bmatrix}
+\]
+
+\end_inset
+
+Assume
+\begin_inset Formula 
+\[
+\text{var}(\begin{bmatrix}\epsilon_{SMB}\\
+\epsilon_{HML}
+\end{bmatrix}|X)=\sigma^{2}I
+\]
+
+\end_inset
+
+Then constructing Wald statistics for the null hypotheses from Equation
+ (5) becomes clear.
+\begin_inset Newline newline
+\end_inset
+
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:3.c"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ report Wald statistics and 
+\begin_inset Formula $p$
+\end_inset
+
+-values from 
+\begin_inset Formula $F$
+\end_inset
+
+-distribution.
+ For Equation (3) and (4), 
+\begin_inset Formula $p$
+\end_inset
+
+-values are different from (c) since Wald statistics do not correct conditional
+ heteroskedasticity.
+ However, Wald statistics can test a joint hypothesis like Equation (5),
+ which cannot be done by 
+\begin_inset Formula $t$
+\end_inset
+
+-statistics.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Wald statistics and 
+\begin_inset Formula $p$
+\end_inset
+
+-values
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:3.c"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW1/Q3.c.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \end_deeper
@@ -597,6 +1035,69 @@ Then, we obtain
 
 \end_inset
 
+Under the no autocorrelation assumption, we obtain
+\begin_inset Formula 
+\begin{align*}
+S_{T} & =\frac{1}{T}\sum_{t}h(\theta,r_{M,t})h(\theta,r_{M,t})'\\
+ & =\begin{bmatrix}\frac{1}{T}\sum_{t}(r_{M,t}-\hat{\mu})^{2} & \frac{1}{T}\sum_{t}(r_{M,t}-\hat{\mu})\big((r_{M,t}-\hat{\mu})^{2}-\hat{\sigma}^{2}\big)\\
+\frac{1}{T}\sum_{t}(r_{M,t}-\hat{\mu})\big((r_{M,t}-\hat{\mu})^{2}-\hat{\sigma}^{2}\big) & \frac{1}{T}\sum_{t}\big((r_{M,t}-\hat{\mu})^{2}-\hat{\sigma}^{2}\big)^{2}
+\end{bmatrix}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+D_{T} & =\begin{bmatrix}-1 & 0\\
+-\frac{2}{T}\sum_{t}(r_{M,t}-\hat{\mu}) & -1
+\end{bmatrix}\\
+ & =\begin{bmatrix}-1 & 0\\
+0 & -1
+\end{bmatrix}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+V_{T} & =[D_{T}S_{T}^{-1}D_{T}']^{-1}\\
+ & =S_{T}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Rightarrow\begin{bmatrix}\hat{\mu}\\
+\hat{\sigma}^{2}
+\end{bmatrix}\approx\mathbb{N}\big(\begin{bmatrix}\mu\\
+\sigma^{2}
+\end{bmatrix},S_{T}/T\big)
+\]
+
+\end_inset
+
+As a result, we obtain
+\begin_inset Formula 
+\begin{align*}
+\text{se}(\hat{\mu}) & =\sqrt{\frac{1}{T}\sum_{t}(r_{M,t}-\hat{\mu})^{2}/T}\\
+ & =0.160
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\text{se}(\hat{\sigma}^{2}) & =\sqrt{\frac{1}{T}\sum_{t}\big((r_{M,t}-\hat{\mu})^{2}-\hat{\sigma}^{2}\big)^{2}/T}\\
+ & =2.681
+\end{align*}
+
+\end_inset
+
 
 \end_layout
 
@@ -604,26 +1105,378 @@ Then, we obtain
 Suppose
 \begin_inset Formula 
 \[
-r_{M,t}=_{i.i.d}\mathbb{N}(0,\sigma^{2}).
+r_{M,t}=_{i.i.d}\mathbb{N}(\mu,\sigma^{2}).
 \]
 
 \end_inset
 
-Define
+Then
+\begin_inset Formula 
+\begin{align*}
+\hat{\mu} & =\frac{1}{T}\iota'r_{M}\\
+ & =_{d}\mathbb{N}(\mu,\sigma^{2}/T)
+\end{align*}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\begin{align*}
+\frac{T\hat{\sigma}^{2}}{\sigma^{2}} & =\frac{r_{M}'}{\sigma}(I-P_{\iota})\frac{r_{M}}{\sigma}\\
+ & =\big(\frac{r_{M}-\mu}{\sigma}\big)'(I-P_{\iota})\big(\frac{r_{M}-\mu}{\sigma}\big)\\
+ & =_{d}\chi_{T-1}^{2}
+\end{align*}
+
+\end_inset
+
+
 \begin_inset Formula 
 \[
-h(\mu,\sigma^{2},r_{M,t})=\begin{bmatrix}r_{M,t}-\mu\\
-(r_{M,t}-\mu)^{2}-\sigma^{2}
+\Rightarrow\text{var}(\hat{\sigma}^{2})=\frac{2(T-1)}{T^{2}}\sigma^{4}
+\]
+
+\end_inset
+
+Moreover, due to the normality, we have
+\begin_inset Formula 
+\[
+\hat{\mu}=f(\iota'r_{M})
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\hat{\sigma}^{2}=g\big((I-P_{\iota})r_{M}\big)
+\]
+
+\end_inset
+
+are independent.
+ Hence, we obtain
+\begin_inset Formula 
+\[
+\text{var}\big(\begin{bmatrix}\hat{\mu}\\
+\hat{\sigma}^{2}
+\end{bmatrix}\big)=\begin{bmatrix}\sigma^{2}/T & 0\\
+0 & 2(T-1)\sigma^{4}/T^{2}
 \end{bmatrix}
 \]
+
+\end_inset
+
+Since 
+\begin_inset Formula $\hat{\sigma}^{2}\rightarrow_{p}\sigma^{2}$
+\end_inset
+
+, we may approximate that
+\begin_inset Formula 
+\begin{align*}
+\text{se}(\hat{\mu}) & \approx\sqrt{\hat{\sigma}^{2}/T}\\
+ & =0.160
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\text{se}(\hat{\sigma}^{2}) & \approx\sqrt{2(T-1)(\hat{\sigma}^{2})^{2}/T^{2}}\\
+ & =1.205
+\end{align*}
 
 \end_inset
 
 
 \end_layout
 
+\begin_layout Enumerate
+First, note that
+\begin_inset Formula 
+\[
+\Gamma_{1,T}=\frac{1}{T}\sum_{t=2}^{T}h(\theta,r_{M,t})h(\theta,r_{M,t-1})'
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+=\begin{bmatrix}\frac{1}{T}\sum_{t=2}^{T}(r_{M,t}-\hat{\mu})(r_{M,t-1}-\hat{\mu}) & \frac{1}{T}\sum_{t=2}^{T}(r_{M,t}-\hat{\mu})\big((r_{M,t-1}-\hat{\mu})^{2}-\hat{\sigma}^{2}\big)\\
+\frac{1}{T}\sum_{t=2}^{T}(r_{M,t-1}-\hat{\mu})\big((r_{M,t}-\hat{\mu})^{2}-\hat{\sigma}^{2}\big) & \frac{1}{T}\sum_{t=2}^{T}\big((r_{M,t}-\hat{\mu})^{2}-\hat{\sigma}^{2}\big)\big((r_{M,t-1}-\hat{\mu})^{2}-\hat{\sigma}^{2}\big)
+\end{bmatrix}
+\]
+
+\end_inset
+
+Then
+\begin_inset Formula 
+\[
+\tilde{S}_{T}=S_{T}+(1-1/2)\big(\Gamma_{1,T}+\Gamma'_{1,T})
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\tilde{V}_{T}=\tilde{S}_{T}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $S_{T}$
+\end_inset
+
+ is from part (a).
+ Then, we obtain
+\begin_inset Formula 
+\[
+\text{se}(\hat{\mu})=0.169
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{se}(\hat{\sigma}^{2})=3.049
+\]
+
+\end_inset
+
+which is greater than standard errors calculated in part (a).
+\end_layout
+
 \end_deeper
 \begin_layout Enumerate
+First, note that a stochastic process 
+\begin_inset Formula $(x_{t})$
+\end_inset
+
+ has
+\begin_inset Formula 
+\[
+\mathbb{E}x_{t}=\theta\frac{1}{1-\rho}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{var}(x_{t})=\sigma^{2}\frac{1}{1-\rho^{2}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma(k)=\rho^{|k|}\sigma^{2}\frac{1}{1-\sigma^{2}}
+\]
+
+\end_inset
+
+suggesting it is covariance stationary.
+ Define
+\begin_inset Formula 
+\[
+y=\begin{bmatrix}x_{1}\\
+\vdots\\
+x_{T}
+\end{bmatrix}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+X=\begin{bmatrix}1 & x_{0}\\
+\vdots & \vdots\\
+1 & x_{T-1}
+\end{bmatrix}
+\]
+
+\end_inset
+
+Then
+\begin_inset Formula 
+\[
+\begin{bmatrix}\hat{\theta}\\
+\hat{\rho}
+\end{bmatrix}=\begin{bmatrix}\theta\\
+\rho
+\end{bmatrix}+(X'X)^{-1}\begin{bmatrix}\sum_{t=1}^{T}e_{t}\\
+\sum_{t=1}^{T}x_{t-1}e_{t}
+\end{bmatrix}
+\]
+
+\end_inset
+
+Note that given 
+\begin_inset Formula $\sigma(X)=\sigma((x_{t})_{t\leq T-1})$
+\end_inset
+
+,
+\begin_inset Formula 
+\[
+x_{t-1}\uparrow\Rightarrow e_{t}\downarrow
+\]
+
+\end_inset
+
+when 
+\begin_inset Formula $\rho>0$
+\end_inset
+
+.
+ Therefore, we have
+\begin_inset Formula 
+\[
+\mathbb{E}[x_{t-1}e_{t}|X]<0
+\]
+
+\end_inset
+
+for 
+\begin_inset Formula $t=1,\cdots,T-1$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\mathbb{E}\hat{\rho}<\rho
+\]
+
+\end_inset
+
+However, we have a consistency of 
+\begin_inset Formula $\hat{\rho}$
+\end_inset
+
+ from
+\begin_inset Formula 
+\begin{align*}
+\lim_{T\rightarrow\infty}\begin{bmatrix}\hat{\theta}\\
+\hat{\rho}
+\end{bmatrix} & =\begin{bmatrix}\theta\\
+\rho
+\end{bmatrix}+(\frac{1}{T}X'X)^{-1}\begin{bmatrix}\frac{1}{T}\sum_{t=1}^{T}e_{t}\\
+\frac{1}{T}\sum_{t=1}^{T}x_{t-1}e_{t}
+\end{bmatrix}\\
+ & \rightarrow_{p}\begin{bmatrix}\theta\\
+\rho
+\end{bmatrix}+(\mathbb{E}[X'X])^{-1}\begin{bmatrix}\mathbb{E}e_{t}\\
+\mathbb{E}[x_{t-1}e_{t}]
+\end{bmatrix}\\
+ & =\begin{bmatrix}\theta\\
+\rho
+\end{bmatrix}
+\end{align*}
+
+\end_inset
+
+since
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}[X'X] & =\begin{bmatrix}1 & \mathbb{E}x_{t}\\
+\mathbb{E}x_{t} & \mathbb{E}x_{t}^{2}
+\end{bmatrix}\\
+ & =\begin{bmatrix}1 & \theta/(1-\rho)\\
+\theta(1-\rho) & \sigma^{2}(1-\rho^{2})+\theta^{2}/(1-\rho)^{2}
+\end{bmatrix}\\
+ & <\infty
+\end{align*}
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\mathbb{E}[x_{t-1}e_{t}]=0
+\]
+
+\end_inset
+
+Next, define
+\begin_inset Formula 
+\[
+r=\begin{bmatrix}r_{1}\\
+\vdots\\
+r_{T}
+\end{bmatrix}
+\]
+
+\end_inset
+
+Then
+\begin_inset Formula 
+\[
+\begin{bmatrix}\hat{\alpha}\\
+\hat{\beta}
+\end{bmatrix}=\begin{bmatrix}\alpha\\
+\beta
+\end{bmatrix}+(X'X)^{-1}\begin{bmatrix}\sum_{t=1}^{T}u_{t}\\
+\sum_{t=1}^{T}x_{t-1}u_{t}
+\end{bmatrix}
+\]
+
+\end_inset
+
+Since 
+\begin_inset Formula $\mathbb{E}[e_{t}u_{t}]<0$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\[
+\mathbb{E}[x_{t-1}u_{t}|X]>0
+\]
+
+\end_inset
+
+for 
+\begin_inset Formula $t=1,\cdots,T-1$
+\end_inset
+
+ and
+\begin_inset Formula 
+\[
+\mathbb{E}\hat{\beta}>\beta
+\]
+
+\end_inset
+
+Similarly, we have a consistency of 
+\begin_inset Formula $\hat{\beta}$
+\end_inset
+
+ from
+\begin_inset Formula 
+\begin{align*}
+\lim_{T\rightarrow\infty}\begin{bmatrix}\hat{\alpha}\\
+\hat{\beta}
+\end{bmatrix} & =\begin{bmatrix}\hat{\alpha}\\
+\hat{\beta}
+\end{bmatrix}+(\frac{1}{T}X'X)^{-1}\begin{bmatrix}\frac{1}{T}\sum_{t=1}^{T}u_{t}\\
+\frac{1}{T}\sum_{t=1}^{T}x_{t-1}u_{t}
+\end{bmatrix}\\
+ & \rightarrow_{p}\begin{bmatrix}\alpha\\
+\beta
+\end{bmatrix}+(\mathbb{E}[X'X])^{-1}\begin{bmatrix}\mathbb{E}[u_{t}]\\
+\mathbb{E}[x_{t-1}u_{t}]
+\end{bmatrix}\\
+ & =\begin{bmatrix}\alpha\\
+\beta
+\end{bmatrix}
+\end{align*}
+
+\end_inset
+
 Table 
 \begin_inset CommandInset ref
 LatexCommand ref
@@ -665,23 +1518,32 @@ noprefix "false"
 \begin_inset Formula $\hat{\beta}$
 \end_inset
 
- is underestimated (
-\begin_inset Formula $\hat{\beta}<\beta$
+ is overestimated (
+\begin_inset Formula $\hat{\beta}>\beta$
 \end_inset
 
-) on average and skewed to the right (positive skewness), while 
+) on average, while 
 \begin_inset Formula $\hat{\rho}$
 \end_inset
 
- is overestimated 
-\begin_inset Formula $(\hat{\rho}>\rho)$
+ is underestimated 
+\begin_inset Formula $(\hat{\rho}<\rho)$
 \end_inset
 
- on average and skewed to the left (negative skewness).
+ on average.
+ We can also find 
+\begin_inset Formula $\hat{\beta}$
+\end_inset
+
+ is skewed to the right (positive skewness) while 
+\begin_inset Formula $\hat{\rho}$
+\end_inset
+
+ is skewed to the left (negative skewness).
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -729,7 +1591,7 @@ filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW
 \begin_inset Float table
 wide false
 sideways false
-status collapsed
+status open
 
 \begin_layout Plain Layout
 \begin_inset Caption Standard
@@ -855,7 +1717,7 @@ ly estimate MLE.
 
 \begin_inset Formula 
 \[
-\hat{\theta}_{ML}=0.080,
+\hat{\theta}_{ML}=0.0798,
 \]
 
 \end_inset

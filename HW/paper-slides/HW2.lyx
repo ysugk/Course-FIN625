@@ -1,0 +1,626 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{hyperref}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Assignment 2
+\end_layout
+
+\begin_layout Author
+Yongseok Kim
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+See Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.a"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the results.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+In-sample 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ statistics
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.a"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW2/Q1.a.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+See Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.b"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the results.
+ In contrast to positive in-sample 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ statistics, we obtain negative out-of-sample 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ statistics, which indicates that the predictive regression has 
+\emph on
+greater
+\emph default
+ average mean-squared prediction error than the historical average return.
+ This result is consistent with Welch and Goyal's (2008) claim: the predictive
+ regression is lack of out-of-sample predictability.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Out-of-sample 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ statistics
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.b"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+In-sample 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ statistics are calculated using the out-of-sample period observations.
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW2/Q1.b.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+See Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.c"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the results.
+ Following Campbell and Thompson's (2008) modification, we obtain positive
+ out-of-sample 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ statistics, which indicates that the predictive regression has 
+\emph on
+lower
+\emph default
+ average mean-squared prediction error than the historical average return.
+ We can conclude that there is an inprovement in the out-of-sample explanatory
+ power of the two valuation ratios, though I do not derive a statistical
+ inference here.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Campbell and Thompson's (2008) modification
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.c"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW2/Q1.c.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+See Appendix for a code to construct our new predictor 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Until now, we estimate
+\begin_inset Formula 
+\begin{align*}
+\\
+\hat{\mathbb{E}}_{t}g_{t+1} & =\frac{1}{t}\sum_{s=1}^{t}g_{s}\\
+ & =\hat{\mathbb{E}}_{t-1}g_{t}+t^{-1}[g_{t}-\hat{\mathbb{E}}_{t-1}g_{t}]
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\widehat{\text{var}}_{t}(r_{t+1}) & =\frac{1}{t}\sum_{s=1}^{t}(r_{s}-\bar{r}_{s})^{2}\\
+ & =\widehat{\text{var}}_{t-1}(r_{t})+t^{-1}[(r_{t}-\bar{r}_{t})^{2}-\widehat{\text{var}}_{t-1}(r_{t})]
+\end{align*}
+
+\end_inset
+
+which can be justified as a least squared learning using a perceived law
+ of motion
+\begin_inset Formula 
+\[
+g_{t}=\mu_{g}+\varepsilon_{t}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\varepsilon_{t}=_{i.i.d}(0,\sigma_{\varepsilon}^{2})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+r_{t}=\mu_{r}+\nu_{t}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\nu_{t}=_{i.i.d}(0,\sigma_{\nu}^{2})
+\]
+
+\end_inset
+
+We can consider alternative procedures by modifying a learning or a perceived
+ law of motion or both.
+ As an alternative procedure, we may assume normality of unknown parameters
+ and a prior distribution.
+ Then, by the Bayes update, we can obtain posterior distribution of parameters
+ at each 
+\begin_inset Formula $t$
+\end_inset
+
+ and consider moments from posterior as our conditional expectations at
+ 
+\begin_inset Formula $t$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+See Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.e"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the repeated calculations of part b) and c) for 
+\begin_inset Formula $x_{t}$
+\end_inset
+
+.
+ Note that the sign restriction is also reasonable in this predictive regression.
+ The repeated calculation improves the forecasting performance of part b).
+ Moreover, the performance of part c) is also improved compared to part
+ b).
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The adjusted version of the dividend yield
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.e"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW2/Q1.e.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+See Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.f"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the results.
+ At the first glimpse, the out-of-sample performance of the predictive regressio
+n looks bad, suggesting it may not be useful for real-time forecasting.
+ From this exercise, however, we can learn that the out-of-sample performance
+ of the predictive regression can be improved with theoretical restrictions.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Fully imposed theoretical restrictions
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.f"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW2/Q1.f.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Note that
+\begin_inset Formula 
+\begin{align*}
+\text{var}_{t}^{*}R_{i,t+1} & =\mathbb{E}_{t}^{*}R_{i,t+1}^{2}-(\mathbb{E}_{t}^{*}R_{i,t+1})^{2}\\
+ & =R_{f,t+1}\mathbb{E}_{t}[M_{t+1}R_{i,t+1}^{2}]-R_{f,t+1}^{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\text{cov}_{t}(M_{t+1}R_{i,t+1},R_{i,t+1}) & =\mathbb{E}_{t}[M_{t+1}R_{i,t+1}^{2}]-\mathbb{E}_{t}[M_{t+1}R_{i,t+1}]\mathbb{E}_{t}[R_{i,t+1}]\\
+ & =\mathbb{E}_{t}[M_{t+1}R_{i,t+1}^{2}]-\mathbb{E}_{t}[R_{i,t+1}]
+\end{align*}
+
+\end_inset
+
+Then
+\begin_inset Formula 
+\begin{align*}
+\frac{\text{var}_{t}^{*}R_{i,t+1}}{R_{f,t+1}} & =\mathbb{E}_{t}[R_{i,t+1}]-R_{f,t+1}+\mathbb{E}_{t}[M_{t+1}R_{i,t+1}^{2}]-\mathbb{E}_{t}[R_{i,t+1}]\\
+ & =\mathbb{E}_{t}[R_{i,t+1}]-R_{f,t+1}+\text{cov}_{t}(M_{t+1}R_{i,t+1},R_{i,t+1})
+\end{align*}
+
+\end_inset
+
+If
+\begin_inset Formula 
+\[
+\text{cov}_{t}(M_{t+1}R_{i,t+1},R_{i,t+1})\leq0
+\]
+
+\end_inset
+
+we obtain
+\begin_inset Formula 
+\begin{align*}
+R_{f,t+1}SVIX_{i,t+1}^{2} & =\frac{\text{var}_{t}^{*}R_{i,t+1}}{R_{f,t+1}}\\
+ & =\mathbb{E}_{t}[R_{i,t+1}]-R_{f,t+1}+\text{cov}_{t}(M_{t+1}R_{i,t+1},R_{i,t+1})\\
+ & \leq\mathbb{E}_{t}[R_{i,t+1}]-R_{f,t+1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+If risk-neutral distribution of returns follow the log normal distribution,
+ we have
+\begin_inset Formula 
+\[
+\log\mathbb{E}_{t}^{*}(R_{i,t+1})=\mathbb{E}_{t}^{*}(\log R_{i,t+1})+\frac{1}{2}\text{var}_{t}^{*}(\log R_{i,t+1})
+\]
+
+\end_inset
+
+Then
+\begin_inset Formula 
+\begin{align*}
+VIX_{i,t,t+1}^{2} & =2L_{t}^{*}(\frac{R_{i,t+1}}{R_{f,t+1}})\\
+ & =\frac{1}{R_{f,t+1}^{2}}\text{var}_{t}^{*}(\log R_{i,t+1})\\
+ & \approx\frac{1}{R_{f,t+1}^{2}}\text{var}_{t}^{*}(R_{i,t+1}-1)\\
+ & =SVIX_{i,t,t+1}^{2}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+First, we have
+\begin_inset Formula 
+\[
+\text{cov}(
+\]
+
+\end_inset
+
+Note that
+\begin_inset Formula 
+\begin{align*}
+\text{var}_{t}^{*}(r_{i,t+1}) & =\mathbb{E}_{t}^{*}r_{i,t+1}^{2}-\mathbb{E}_{t}^{*}[r_{i,t+1}]^{2}\\
+ & =R_{f,t+1}\mathbb{E}_{t}[M_{t+1}r_{i,t+1}^{2}]-R_{f,t+1}^{2}\mathbb{E}_{t}[M_{t+1}r_{i,t+1}]^{2}\\
+ & =
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\end_deeper
+\end_body
+\end_document
