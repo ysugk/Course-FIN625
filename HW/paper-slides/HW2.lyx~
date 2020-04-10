@@ -71,7 +71,7 @@
 \papercolumns 1
 \papersides 1
 \paperpagestyle default
-\tracking_changes false
+\tracking_changes true
 \output_changes false
 \html_math_output 0
 \html_css_as_file 0
@@ -255,14 +255,15 @@ noprefix "false"
 \begin_inset Formula $R^{2}$
 \end_inset
 
- statistics, which indicates that the predictive regression has 
+ statistic for the dividend-price ratio, which indicates that the predictive
+ regression has 
 \emph on
 lower
 \emph default
  average mean-squared prediction error than the historical average return.
  We can conclude that there is an inprovement in the out-of-sample explanatory
- power of the two valuation ratios, though I do not derive a statistical
- inference here.
+ power of the dividend-price ratios, though I do not derive a statistical
+ inference for significance here.
 \begin_inset Float table
 wide false
 sideways false
@@ -453,8 +454,7 @@ noprefix "false"
  At the first glimpse, the out-of-sample performance of the predictive regressio
 n looks bad, suggesting it may not be useful for real-time forecasting.
  From this exercise, however, we can learn that the out-of-sample performance
- of the predictive regression can be improved with modest theoretical restrictio
-ns.
+ of the predictive regression can be improved with theoretical restrictions.
 \begin_inset Float table
 wide false
 sideways false
@@ -576,11 +576,24 @@ status open
 
 \begin_deeper
 \begin_layout Enumerate
-If risk-neutral distribution of returns follow the log normal distribution,
- we have
+If a risk-neutral distribution of return follows the conditional lognormal
+ distribution, i.e.
+ 
+\begin_inset Formula $\log R_{i,T}|I_{t}=_{d}\mathbb{N}(r_{f,T}-\frac{1}{2}\sigma_{T}^{2},\sigma_{T}^{2})$
+\end_inset
+
+, we have
 \begin_inset Formula 
 \[
-\log\mathbb{E}_{t}^{*}(R_{i,t+1})=\mathbb{E}_{t}^{*}(\log R_{i,t+1})+\frac{1}{2}\text{var}_{t}^{*}(\log R_{i,t+1})
+\log\frac{R_{i,T}}{R_{f,T}}|I_{t}=_{d}\mathbb{N}(-\frac{1}{2}\sigma_{T}^{2},\sigma_{T}^{2})
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\log\mathbb{E}_{t}^{*}(\frac{R_{i,T}}{R_{f,T}})=\mathbb{E}_{t}^{*}(\log\frac{R_{i,T}}{R_{f,T}})+\frac{1}{2}\text{var}_{t}^{*}(\log\frac{R_{i,T}}{R_{f,T}})
 \]
 
 \end_inset
@@ -588,10 +601,142 @@ If risk-neutral distribution of returns follow the log normal distribution,
 Then
 \begin_inset Formula 
 \begin{align*}
+VIX_{i,t,T}^{2} & =\frac{2}{T-t}L_{t}^{*}(\frac{R_{i,T}}{R_{f,T}})\\
+ & =\frac{2}{T-t}[\log\mathbb{E}_{t}^{*}(\frac{R_{i,T}}{R_{f,T}})-\mathbb{E}_{t}^{*}\log\frac{R_{i,T}}{R_{f,T}}]\\
+ & =\frac{2}{T-t}[\frac{1}{2}\text{var}_{t}^{*}(\log\frac{R_{i,T}}{R_{f,T}})]\\
+ & =\frac{1}{T-t}\sigma_{T}^{2}
+\end{align*}
+
+\end_inset
+
+Moreover
+\begin_inset Formula 
+\begin{align*}
+SVIX_{i,t,T}^{2} & =\frac{1}{T-t}\frac{1}{R_{f,T}^{2}}\text{var}_{t}^{*}(R_{i,T})\\
+ & =\frac{1}{T-t}\frac{1}{R_{f,T}^{2}}(\exp\sigma_{T}^{2}-1)\exp\big(2(r_{f,T}-\frac{1}{2}\sigma_{T}^{2})+\sigma_{T}^{2}\big)\\
+ & =\frac{1}{T-t}(\exp\sigma_{T}^{2}-1)
+\end{align*}
+
+\end_inset
+
+For sufficiently small 
+\begin_inset Formula $T-t$
+\end_inset
+
+ and 
+\begin_inset Formula $\sigma_{T}^{2}$
+\end_inset
+
+, we obtain
+\begin_inset Formula 
+\[
+\exp\sigma_{T}^{2}-1\approx\sigma_{T}^{2}
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+VIX_{i,t,T}^{2}\approx SVIX_{i,t,T}^{2}
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+First, by Stein's Lemma, we have
+\begin_inset Formula 
+\begin{align*}
+\text{cov}_{t}(e^{m_{t+1}},r_{i,t+1}) & =\mathbb{E}[e^{m_{t+1}}]\text{cov}_{t}(m_{t+1},r_{i,t+1})\\
+ & =\frac{1}{R_{f,t+1}}\text{cov}_{t}(m_{t+1},r_{i,t+1})
+\end{align*}
+
+\end_inset
+
+Then
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}_{t}M_{t+1}r_{i,t+1} & =\text{cov}_{t}(e^{m_{t+1}},r_{i,t+1})+\mathbb{E}_{t}M_{t+1}\mathbb{E}_{t}r_{i,t+1}\\
+ & =\frac{1}{R_{f,t+1}}[\text{cov}_{t}(m_{t+1},r_{i,t+1})+\mathbb{E}_{t}r_{i,t+1}]
+\end{align*}
+
+\end_inset
+
+Second, from 
+\begin_inset Formula $\mathbb{E}_{t}M_{t+1}R_{i,t+1}=1$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{align*}
+\log\mathbb{E}_{t}M_{t+1}R_{i,t+1} & =\mathbb{E}_{t}m_{t+1}+\mathbb{E}r_{i,t+1}+\frac{1}{2}\text{var}_{t}(m_{t+1}+r_{i,t+1})\\
+ & =\mathbb{E}_{t}r_{i,t+1}+\frac{1}{2}\text{var}_{t}r_{i,t+1}+\mathbb{E}_{t}m_{t+1}+\frac{1}{2}\text{var}_{t}m_{t+1}+\text{cov}(m_{t+1},r_{i,t+1})\\
+ & =0
+\end{align*}
+
+\end_inset
+
+where the first equality holds since 
+\begin_inset Formula $m_{t+1}+r_{i,t+1}$
+\end_inset
+
+ is linear transformation of joint normal distribution.
+ Moreover
+\begin_inset Formula 
+\begin{align*}
+\log\mathbb{E}_{t}M_{t+1} & =\mathbb{E}_{t}m_{t+1}+\frac{1}{2}\text{var}_{t}m_{t+1}\\
+ & =-r_{f,t+1}
+\end{align*}
+
+\end_inset
+
+Combining these results, we obtain 
+\begin_inset Formula 
+\begin{align*}
 VIX_{i,t,t+1}^{2} & =2L_{t}^{*}(\frac{R_{i,t+1}}{R_{f,t+1}})\\
- & =\frac{1}{R_{f,t+1}^{2}}\text{var}_{t}^{*}(\log R_{i,t+1})\\
- & \approx\frac{1}{R_{f,t+1}^{2}}\text{var}_{t}^{*}(R_{i,t+1}-1)\\
- & =SVIX_{i,t,t+1}^{2}
+ & =2[\log\mathbb{E}_{t}^{*}(\frac{R_{i,t+1}}{R_{f,t+1}})-\mathbb{E}_{t}^{*}\log\frac{R_{i,t+1}}{R_{f,t+1}}]\\
+ & =-2[R_{f,t+1}\mathbb{E}_{t}M_{t+1}r_{i,t+1}-r_{f,t+1}]\\
+ & =-2[\text{cov}_{t}(m_{t+1},r_{i,t+1})+\mathbb{E}_{t}r_{i,t+1}]+2r_{f,t+1}\\
+ & =-2[r_{f,t+1}-\frac{1}{2}\text{var}_{t}r_{i,t+1}]+2r_{f,t+1}\\
+ & =\text{var}_{t}r_{i,t+1}
+\end{align*}
+
+\end_inset
+
+which is a desired expression.
+ To obtain the expression for 
+\begin_inset Formula $SVIX_{i,t,t+1}^{2}$
+\end_inset
+
+, note
+\begin_inset Formula 
+\begin{align*}
+SVIX_{i,t,t+1}^{2} & =\text{var}_{t}^{*}(\frac{R_{i,t+1}}{R_{f,t+1}})\\
+ & =\frac{1}{R_{f,t+1}^{2}}\mathbb{E}_{t}^{*}[R_{i,t+1}^{2}]-\mathbb{E}_{t}^{*}[\frac{R_{i,t+1}}{R_{f,t+1}}]^{2}\\
+ & =\frac{1}{R_{f,t+1}}\mathbb{E}_{t}[M_{t+1}R_{i,t+1}^{2}]-1
+\end{align*}
+
+\end_inset
+
+By the normality, we have
+\begin_inset Formula 
+\begin{align*}
+\log\mathbb{E}_{t}[M_{t+1}R_{i,t+1}^{2}] & =\mathbb{E}_{t}[m_{t+1}+2r_{i,t+1}]+\frac{1}{2}\text{var}_{t}(m_{t+1}+2r_{i,t+1})\\
+ & =\mathbb{E}_{t}m_{t+1}+\frac{1}{2}\text{var}_{t}m_{t+1}+2\mathbb{E}_{t}r_{i,t+1}+2\text{var}_{t}r_{i,t+1}+2\text{cov}_{t}(m_{t+1},r_{i,t+1})\\
+ & =\text{var}_{t}r_{i,t+1}-(\mathbb{E}_{t}m_{t+1}+\frac{1}{2}\text{var}_{t}m_{t+1})\\
+ & =\text{var}_{t}r_{i,t+1}+r_{f,t+1}
+\end{align*}
+
+\end_inset
+
+Then
+\begin_inset Formula 
+\begin{align*}
+SVIX_{i,t,t+1}^{2} & =\frac{1}{R_{f,t+1}}\exp[\text{var}_{t}r_{i,t+1}+r_{f,t+1}]-1\\
+ & =\exp[\text{var}_{t}r_{i,t+1}]-1
 \end{align*}
 
 \end_inset
@@ -600,28 +745,355 @@ VIX_{i,t,t+1}^{2} & =2L_{t}^{*}(\frac{R_{i,t+1}}{R_{f,t+1}})\\
 \end_layout
 
 \begin_layout Enumerate
-First, we have
+From part b) ii), we obtain 
 \begin_inset Formula 
 \[
-\text{cov}(
+SVIX_{i,t+1}^{2}>VIX_{i,t+1}^{2}
 \]
 
 \end_inset
 
-Note that
+under the lognormal assumption since
 \begin_inset Formula 
-\begin{align*}
-\text{var}_{t}^{*}(r_{i,t+1}) & =\mathbb{E}_{t}^{*}r_{i,t+1}^{2}-\mathbb{E}_{t}^{*}[r_{i,t+1}]^{2}\\
- & =R_{f,t+1}\mathbb{E}_{t}[M_{t+1}r_{i,t+1}^{2}]-R_{f,t+1}^{2}\mathbb{E}_{t}[M_{t+1}r_{i,t+1}]^{2}\\
- & =
-\end{align*}
+\[
+e^{x}-1>x
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $x$
+\end_inset
+
+.
+ Hence, the empirical relationship suggests that the lognormal assumption
+ is not supported in data.
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
 
 \end_inset
 
 
 \end_layout
 
+\begin_deeper
+\begin_layout Enumerate
+The portfolio choice problem for this agent becomes
+\begin_inset Formula 
+\[
+\max_{\theta}\mathbb{E}_{t}[W_{t}(\sum\theta_{i}R_{i,t+1})]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{s.t. }\langle1,\theta\rangle=1
+\]
+
+\end_inset
+
+By the first-oder condition, we obtain
+\begin_inset Formula 
+\[
+\mathbb{E}_{t}[W_{t}R_{i,t+1}]=\lambda
+\]
+
+\end_inset
+
+suggesting the constant SDF supports (infinitely many) solutions.
+ Hence
+\begin_inset Formula 
+\begin{align*}
+\text{cov}_{t}(M_{t+1}R_{m,t+1},R_{m,t+1}) & =\lambda^{-1}W_{t}\sigma_{m,t+1}^{2}\\
+ & >0
+\end{align*}
+
+\end_inset
+
+and NCC does not hold.
+\end_layout
+
+\begin_layout Enumerate
+We need two more assumptions.
+ First, the agent is unconstrained.
+ Second, a risk aversion parameter 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is greater than or equal to 1 for every state.
+ Then, the portfolio choice problem for the agent becomes
+\begin_inset Formula 
+\[
+\max_{\theta}\mathbb{E}_{t}u[W_{t}(\sum\theta_{i}R_{i,t+1})]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{s.t. }\langle1,\theta\rangle=1
+\]
+
+\end_inset
+
+By the first-order condition, we obtain
+\begin_inset Formula 
+\[
+\mathbb{E}_{t}u'[W_{t}(\sum\theta_{i}R_{i,t+1})]R_{i,t+1}=\lambda
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $i$
+\end_inset
+
+.
+ Since the optimal portfolio is the market portfolio, we have
+\begin_inset Formula 
+\[
+\mathbb{E}_{t}\lambda^{-1}u'[W_{t}R_{m,t+1}]R_{i,t+1}=1
+\]
+
+\end_inset
+
+which is a canonical asset pricing equation where the SDF is
+\begin_inset Formula 
+\[
+M_{t}=\lambda^{-1}u'[W_{t}R_{m,t+1}]
+\]
+
+\end_inset
+
+Now, we want to show
+\begin_inset Formula 
+\begin{align*}
+\text{cov}_{t}(M_{t+1}R_{m,t+1},R_{m,t+1}) & =\lambda^{-1}\text{cov}_{t}(u'[W_{t}R_{m,t+1}]R_{m,t+1},R_{m,t+1})\\
+ & \leq0
+\end{align*}
+
+\end_inset
+
+Note that
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial R_{m,t+1}}u'[W_{t}R_{m,t+1}]R_{m,t+1} & =u''(W_{t}R_{m,t+1})W_{t}R_{m,t+1}+u'[W_{t}R_{m,t+1}]\\
+ & =\underbrace{u'[W_{t}R_{m,t+1}]}_{\geq0}\underbrace{(1-\gamma)}_{\leq0}\\
+ & \leq0
+\end{align*}
+
+\end_inset
+
+Hence
+\begin_inset Formula 
+\[
+R_{m,t+1}\uparrow\Rightarrow u'[W_{t}R_{m,t+1}]R_{m,t+1}\downarrow
+\]
+
+\end_inset
+
+suggesting
+\begin_inset Formula 
+\[
+\text{cov}_{t}(M_{t+1}R_{m,t+1},R_{m,t+1})\leq0
+\]
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+For the brevity, I use lower cases to denote logaritm, i.e.
+ 
+\begin_inset Formula $x=\log X$
+\end_inset
+
+.
+ First, we have
+\begin_inset Formula 
+\begin{align*}
+\log\mathbb{E}_{t}M_{t+1}R_{m,t+1} & =\mathbb{E}_{t}m_{t+1}+\mathbb{E}_{t}r_{m,t+1}+\frac{1}{2}\text{var}_{t}(m_{t+1}+r_{m,t+1})\\
+ & =\mathbb{E}_{t}r_{m,t+1}+\frac{1}{2}r_{m,t+1}+\mathbb{E}_{t}m_{t+1}+\frac{1}{2}\text{var}_{t}m_{t+1}+\text{cov}_{t}(m_{t+1},r_{m,t+1})\\
+ & =0
+\end{align*}
+
+\end_inset
+
+Second,
+\begin_inset Formula 
+\begin{align*}
+\log\mathbb{E}_{t}M_{t+1} & =\mathbb{E}_{t}m_{t+1}+\frac{1}{2}\text{var}_{t}m_{t+1}\\
+ & =-r_{f}
+\end{align*}
+
+\end_inset
+
+Combining these results, we obtain
+\begin_inset Formula 
+\[
+\mu_{m,t+1}-r_{f}+\text{cov}_{t}(m_{t+1},r_{m,t+1})=0
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{align*}
+\mu_{m,t+1} & =\log\mathbb{E}_{t}R_{m,t+1}\\
+ & =\mathbb{E}_{t}r_{m,t+1}+\frac{1}{2}r_{m,t+1}
+\end{align*}
+
+\end_inset
+
+Now, we have
+\begin_inset Formula 
+\begin{align*}
+\log\mathbb{E}_{t}M_{t+1}R_{m,t+1}^{2} & =\mathbb{E}_{t}m_{t+1}+2\mathbb{E}_{t}r_{m,t+1}+\frac{1}{2}\text{var}_{t}(m_{t+1}+2r_{m,t+1})\\
+ & =-r_{f}+2\mathbb{E}_{t}r_{m,t+1}+2\text{var}_{t}r_{m,t+1}+2\text{cov}_{t}(m_{t+1},r_{m,t+1})\\
+ & =\mu_{m,t+1}-r_{f}+\text{cov}_{t}(m_{t+1},r_{m,t+1})+\mu_{m,t+1}+\text{var}_{t}r_{m,t+1}+\text{cov}_{t}(m_{t+1},r_{m,t+1})\\
+ & =\mu_{m,t+1}+\text{var}_{t}r_{m,t+1}+\text{cov}_{t}(m_{t+1},r_{m,t+1})
+\end{align*}
+
+\end_inset
+
+where the first equality holds since linear transformation of joint normal
+ distribution is normally distributed.
+ Then
+\begin_inset Formula 
+\[
+\mathbb{E}_{t}M_{t+1}R_{m,t+1}^{2}\leq\mathbb{E}_{t}R_{m,t+1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Leftrightarrow\log\mathbb{E}_{t}M_{t+1}R_{m,t+1}^{2}-\log\mathbb{E}_{t}R_{m,t+1} & =\text{var}_{t}r_{m,t+1}+\text{cov}_{t}(m_{t+1},r_{m,t+1})\\
+ & \leq0
+\end{align*}
+
+\end_inset
+
+Hence, we have
+\begin_inset Formula 
+\[
+\sqrt{\text{var}_{t}r_{m,t+1}}\leq\eta_{t}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\Leftrightarrow\text{NCC holds}
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\eta_{t}=\frac{\mu_{m,t+1}-r_{f}}{\sqrt{\text{var}_{t}r_{m,t+1}}}
+\]
+
+\end_inset
+
+Since those assumptions are quite standard in the literature and the assumptions
+ on risk aversion and Sharpe ratio are empirically supported, we can conclude
+ NCC imposes weak conditions.
+\end_layout
+
 \end_deeper
+\begin_layout Enumerate
+A satisfaction of the lower bound with equality implies
+\begin_inset Formula 
+\[
+\text{cov}_{t}(M_{t+1}R_{m,t+1},R_{m,t+1})\approx0
+\]
+
+\end_inset
+
+which could be achieved when
+\begin_inset Formula 
+\begin{align*}
+\frac{\partial}{\partial R_{m,t+1}}u'[W_{t}R_{m,t+1}]R_{m,t+1} & =u'[W_{t}R_{m,t+1}](1-\gamma)\\
+ & \approx0
+\end{align*}
+
+\end_inset
+
+for any 
+\begin_inset Formula $W_{t}R_{m,t+1}$
+\end_inset
+
+.
+ Hence, based on the discussion in part c) ii), we can interpret this result
+ as the relative risk aversion of the marginal investor who holds the market
+ is close to 1.
+\end_layout
+
+\begin_layout Enumerate
+I would like to emphasize two advantages of SVIX approach.
+ First, it is possible to construct dataset at high-frequency.
+ Second, therefore, it is much more volatile than the conventional approach,
+ which would be very helpful to understand high volatility of (short-run)
+ equity premiums.
+ However, one disadvantage of SVIX approach is that its computation heavily
+ relies on option prices with different strikes.
+ Therefore, if the option market is not working well, e.g.
+ illiquid market or narrow range of strike prices, SVIX approach would not
+ be feasible.
+ Moreover, since it is a lower bound, a link between the lower bound and
+ the actual equity premium depends on the level of 
+\begin_inset Formula $\text{cov}_{t}(M_{t+1}R_{m,t+1},R_{m,t+1})$
+\end_inset
+
+ and its serial correlation with equity premium.
+\end_layout
+
+\begin_layout Enumerate
+From Campbell-Shiller approximation, we obtain the accounting identity
+\begin_inset Formula 
+\[
+d_{t}-p_{t}=\kappa+\mathbb{E}_{t}\sum_{j=0}^{\infty}\rho^{j}(r_{t+1+j}-\Delta d_{t+1+j})
+\]
+
+\end_inset
+
+Since future dividend growth is empirically unforecastable, we can approximate
+\begin_inset Formula 
+\[
+d_{t}-p_{t}=\kappa+\mathbb{E}_{t}\sum_{j=0}^{\infty}\rho^{j}r_{t+1+j}
+\]
+
+\end_inset
+
+suggesting that the dividend-price ratio is related to (appropriately discounted
+) long-run expected return.
+ In contrast, 
+\begin_inset Formula $SVIX$
+\end_inset
+
+ bound is related to short-run expected return, as we have seen above.
+ Hence, we can reconcile two seemingly contrasting forecast by interpreting
+ that during 1998-1999 the marginal investor expected short-run return to
+ be high while long-run return to be low.
+\end_layout
+
 \end_deeper
 \end_body
 \end_document

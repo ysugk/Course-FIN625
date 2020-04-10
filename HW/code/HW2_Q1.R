@@ -8,7 +8,6 @@ df <- readxl::read_excel("HW/input/Problem5.2_data.xlsx") %>%
   mutate(Date = ymd(paste0(Date, ".01")),
          lag1_dp = lag(dp, 1),
          lag1_xp = lag(xp, 1))
-
 #' a.
 # Run regressions
 m.a.1 <- lm(Rm - Rf ~ lag1_dp, df)
