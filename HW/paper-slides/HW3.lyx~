@@ -1,0 +1,2993 @@
+#LyX 2.3 created this file. For more info see http://www.lyx.org/
+\lyxformat 544
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{hyperref}
+\usepackage{booktabs, dcolumn}
+\end_preamble
+\use_default_options true
+\maintain_unincluded_children false
+\language english
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman "default" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize default
+\spacing single
+\use_hyperref false
+\papersize a4paper
+\use_geometry true
+\use_package amsmath 1
+\use_package amssymb 1
+\use_package cancel 1
+\use_package esint 1
+\use_package mathdots 1
+\use_package mathtools 1
+\use_package mhchem 1
+\use_package stackrel 1
+\use_package stmaryrd 1
+\use_package undertilde 1
+\cite_engine basic
+\cite_engine_type default
+\biblio_style plain
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 1
+\use_minted 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Title
+Assignment 3
+\end_layout
+
+\begin_layout Author
+Yongseok Kim
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+See Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.a"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for the summary statistics.
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Summary statistics
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.a"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This table summarizes number of obsevations (
+\emph on
+n
+\emph default
+), means (
+\emph on
+mean
+\emph default
+), standard deviations (
+\emph on
+sd
+\emph default
+), and first-order autocorrelation coefficients (
+\emph on
+ar1coef
+\emph default
+) for following variables: real consumption growth (
+\emph on
+gc_real
+\emph default
+), real return on the aggregate stock portfolio (
+\emph on
+rm_real
+\emph default
+), real T-bill return (
+\emph on
+rf_real
+\emph default
+), the excess return on the two (
+\emph on
+erm
+\emph default
+).
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Annual
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.a.1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q1.a.annualsummary.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Quarterly
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.a.2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q1.a.quarterlysummary.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Under the lognormality assumption, we have
+\begin_inset Formula 
+\begin{align*}
+\log\mathbb{E}_{t}[\delta(\frac{C_{t+1}}{C_{t}})^{-\gamma}R_{i,t+1}] & =\mathbb{E}_{t}[\log\delta(\frac{C_{t+1}}{C_{t}})^{-\gamma}R_{i,t+1}]+\frac{1}{2}\text{var}_{t}[\log\delta(\frac{C_{t+1}}{C_{t}})^{-\gamma}R_{i,t+1}]\\
+ & =\log1\\
+ & =0
+\end{align*}
+
+\end_inset
+
+Note
+\begin_inset Formula 
+\begin{align*}
+\log\delta(\frac{C_{t+1}}{C_{t}})^{-\gamma}R_{i,t+1} & =\log\delta-\gamma\Delta c_{t+1}+r_{i,t+1}\\
+ & =_{d}\mathbb{N}(\mu,\sigma^{2})
+\end{align*}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\mu=\log\delta-\gamma\mathbb{E}\Delta c_{t+1}+\mathbb{E}r_{i,t+1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\sigma^{2}=\gamma^{2}\sigma_{c}^{2}+\sigma_{i}^{2}-2\gamma\sigma_{ic}
+\]
+
+\end_inset
+
+Then, for the risk-free asset, we have
+\begin_inset Formula 
+\[
+\log\delta-\gamma\mathbb{E}\Delta c_{t+1}+r_{f,t+1}+\frac{1}{2}\gamma^{2}\sigma_{c}^{2}=0
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{equation}
+r_{f,t+1}=-\log\delta+\gamma\mathbb{E}\Delta c_{t+1}-\frac{1}{2}\gamma^{2}\sigma_{c}^{2}\label{eq:1.b.1}
+\end{equation}
+
+\end_inset
+
+For the asset 
+\begin_inset Formula $i$
+\end_inset
+
+, we have
+\begin_inset Formula 
+\begin{equation}
+\log\delta-\gamma\mathbb{E}\Delta c_{t+1}+\mathbb{E}r_{i,t+1}+\frac{1}{2}(\gamma^{2}\sigma_{c}^{2}+\sigma_{i}^{2}-2\gamma\sigma_{ic})\label{eq:1.b.2}
+\end{equation}
+
+\end_inset
+
+Substituiting 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.b.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ into 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.b.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ yields
+\begin_inset Formula 
+\begin{equation}
+\mathbb{E}(r_{i,t+1}-r_{f,t+1})+0.5\sigma_{i}^{2}=\gamma\sigma_{ic}\label{eq:1.b.3}
+\end{equation}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+See Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.c"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ for moments and correlations.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Moments and correlations
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.c"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This table presents moments (left) and correlations (right) for following
+ variables: log consumption growth (
+\emph on
+dc
+\emph default
+), log return on the stock (
+\emph on
+r
+\emph default
+), log return on the T-bill (
+\emph on
+rf
+\emph default
+).
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Annual
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.c.1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q1.c.annualsummary.tex"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q1.c.annualcor.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Quarerly
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.c.2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q1.c.quarterlysummary.tex"
+
+\end_inset
+
+
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q1.c.quarterlycor.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+By rearranging 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:1.b.3"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+, we obtain
+\begin_inset Formula 
+\[
+\gamma=\frac{\mathbb{E}(r_{i,t+1}-r_{f,t+1})+0.5\sigma_{i}^{2}}{\sigma_{ic}}
+\]
+
+\end_inset
+
+The first measure is calculated as
+\begin_inset Formula 
+\begin{align*}
+\gamma_{1} & =\frac{\mathbb{E}(r_{i,t+1}-r_{f,t+1})+0.5\sigma_{i}^{2}}{\sigma_{i}\sigma_{c}\rho_{ic}}\\
+ & =\begin{cases}
+\frac{0.058-0.006+0.5\times(0.203)^{2}}{0.203\times0.021\times0.09}=189.2368 & \text{annual}\\
+\frac{0.017-0.002+0.5\times(0.083)^{2}}{0.083\times0.005\times0.18}=246.9143 & \text{quarterly}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+The second measure is calculated as
+\begin_inset Formula 
+\begin{align*}
+\gamma_{2} & =\frac{\mathbb{E}(r_{i,t+1}-r_{f,t+1})+0.5\sigma_{i}^{2}}{\sigma_{i}\sigma_{c}}\\
+ & =\begin{cases}
+\frac{0.058-0.006+0.5\times(0.203)^{2}}{0.203\times0.021}=17.0313 & \text{annual}\\
+\frac{0.017-0.002+0.5\times(0.083)^{2}}{0.083\times0.005}=44.4446 & \text{quarterly}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+An a priori justification for restricting the value of 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ is a maximum of ten (Mehra and Prescott, 1985).
+ Therefore, 
+\begin_inset Formula $\gamma$
+\end_inset
+
+ backed out from the estimates are too big to be justfied.
+ This result is a well-known equity premium puzzle.
+\end_layout
+
+\begin_layout Enumerate
+Since 
+\begin_inset Formula $\theta$
+\end_inset
+
+ is overidentified, we need to consider
+\begin_inset Formula 
+\[
+\hat{\theta}=\arg\min_{\theta}m_{T}(\theta)'W_{T}m_{T}(\theta)
+\]
+
+\end_inset
+
+for some weighting matrix 
+\begin_inset Formula $W_{T}$
+\end_inset
+
+ where
+\begin_inset Formula 
+\[
+\theta=(\delta,\gamma)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+h(x_{t},\theta)=\begin{bmatrix}\delta(\frac{C_{t+1}}{C_{t}})^{-\gamma}R_{s,t+1}z_{t}-z_{t}\\
+\delta(\frac{C_{t+1}}{C_{t}})^{-\gamma}R_{f,t+1}z_{t}-z_{t}
+\end{bmatrix}_{6\times1}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+m_{T}(\theta)=\frac{1}{T}\sum_{t}h(x_{t},\theta)
+\]
+
+\end_inset
+
+Consider the optimal GMM estimator with
+\begin_inset Formula 
+\[
+W_{T}=\hat{V}_{T}^{-1}
+\]
+
+\end_inset
+
+where 
+\begin_inset Formula $\hat{V}_{T}$
+\end_inset
+
+ is a consistent estimate of 
+\begin_inset Formula $V=\mathbb{E}h(x_{i},\theta)h(x_{i},\theta)'$
+\end_inset
+
+.
+ Define
+\begin_inset Formula 
+\begin{align*}
+M_{T}(\theta) & =\frac{1}{T}\sum_{t}\frac{\partial}{\partial\theta'}h(x_{t},\theta)\\
+ & =\begin{bmatrix}\frac{1}{T}\sum_{t}(\frac{C_{t+1}}{C_{t}})^{-\gamma}R_{s,t+1}z_{t} & \frac{1}{T}\sum_{t}\delta(\frac{C_{t+1}}{C_{t}})^{-\gamma}(-\log\frac{C_{t+1}}{C_{t}})R_{s,t+1}z_{t}\\
+\frac{1}{T}\sum_{t}(\frac{C_{t+1}}{C_{t}})^{-\gamma}R_{f,t+1}z_{t} & \frac{1}{T}\sum_{t}\delta(\frac{C_{t+1}}{C_{t}})^{-\gamma}(-\log\frac{C_{t+1}}{C_{t}})R_{f,t+1}z_{t}
+\end{bmatrix}
+\end{align*}
+
+\end_inset
+
+Then, under the regularity conditions, we have
+\begin_inset Formula 
+\[
+\sqrt{T}(\hat{\theta}-\theta_{0})\rightarrow_{d}\mathbb{N}(0,[M'V^{-1}M]^{-1})
+\]
+
+\end_inset
+
+For a large 
+\begin_inset Formula $T$
+\end_inset
+
+, we may approximate
+\begin_inset Formula 
+\[
+\hat{\theta}\approx_{d}\mathbb{N}(\theta_{0},\hat{\Omega})
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\hat{\Omega}=\frac{1}{T}[M_{T}(\hat{\theta})'\hat{V}_{T}^{-1}M_{T}(\hat{\theta})]^{-1}
+\]
+
+\end_inset
+
+Moreover, since
+\begin_inset Formula 
+\[
+\sqrt{T}m_{T}(\theta)\rightarrow_{d}\mathbb{N}(0,V)
+\]
+
+\end_inset
+
+we may approximate
+\begin_inset Formula 
+\begin{align*}
+J(\hat{\theta}) & =Tm_{T}(\hat{\theta})'\hat{V}_{T}^{-1}m_{T}(\hat{\theta})\\
+ & \approx_{d}\chi_{p-q}^{2}
+\end{align*}
+
+\end_inset
+
+where 
+\begin_inset Formula $p:$
+\end_inset
+
+ number of moment conditions, 
+\begin_inset Formula $q$
+\end_inset
+
+: number of parameters.
+ To estimate 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{V}_{T}$
+\end_inset
+
+, I proceed in the following steps.
+ First, I estimate 
+\begin_inset Formula $\tilde{\theta}$
+\end_inset
+
+ using the identity matrix 
+\begin_inset Formula $I$
+\end_inset
+
+ as weighting matrix.
+ Second, I estimate a Newey-West estimator of the covariance matrix 
+\begin_inset Formula $\hat{V}_{T}$
+\end_inset
+
+ with one lag using 
+\begin_inset Formula $\tilde{\theta}$
+\end_inset
+
+.
+ Lastly, I re-estimate 
+\begin_inset Formula $\hat{\theta}$
+\end_inset
+
+ using 
+\begin_inset Formula $\hat{V}_{T}$
+\end_inset
+
+ as a weighting matrix.
+ For the numerical procedure, I employ L-BFGS-B method for the optimization
+ (Byrd et.
+ al., 1995) which is a quasi-Newton method allowing box constraints.
+ I restrict
+\begin_inset Formula 
+\[
+\delta\in[0,1]
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\gamma\in[0,\infty)
+\]
+
+\end_inset
+
+and set the value of initial parameters as 
+\begin_inset Formula $\hat{\theta}=(0.9,30)$
+\end_inset
+
+.
+ I find that results are very sensitive not only to the value of initial
+ parameters, but also to optimization methods.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.e"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ presents the results.
+ For 
+\begin_inset Formula $\hat{\delta}$
+\end_inset
+
+ and 
+\begin_inset Formula $\hat{\gamma}$
+\end_inset
+
+, I compute 
+\emph on
+t
+\emph default
+-ratios as
+\begin_inset Formula 
+\[
+t(\hat{\delta})=\frac{\hat{\delta}-\delta_{0}}{\sqrt{\hat{\Omega}_{11}}}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+t(\hat{\gamma})=\frac{\hat{\gamma}-\gamma_{0}}{\sqrt{\hat{\Omega}_{22}}}
+\]
+
+\end_inset
+
+and evaluate their two-sided 
+\emph on
+p
+\emph default
+-values from 
+\begin_inset Formula $\mathbb{N}(0,1)$
+\end_inset
+
+ under 
+\begin_inset Formula $H_{0}:\delta_{0}=0$
+\end_inset
+
+ and 
+\begin_inset Formula $H_{0}:\gamma_{0}=0$
+\end_inset
+
+.
+ For 
+\begin_inset Formula $J(\hat{\theta})$
+\end_inset
+
+, I evaluate its 
+\emph on
+p
+\emph default
+-value from 
+\begin_inset Formula $\chi_{4}^{2}$
+\end_inset
+
+.
+ 
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Results for the GMM two-step estimator
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.e"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This table shows results for the GMM two-step estimator.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q1.e.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Consider a multivariate regression model
+\begin_inset Formula 
+\[
+Y_{T\times10}=X_{T\times2}B_{2\times10}+U_{T\times10}
+\]
+
+\end_inset
+
+Assume
+\begin_inset Formula 
+\[
+\text{var}(U)=I_{T}\otimes\Sigma
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\Sigma=\mathbb{E}u_{t}u_{t}'
+\]
+
+\end_inset
+
+for any 
+\begin_inset Formula $t$
+\end_inset
+
+.
+ Then, the LS estimate yields
+\begin_inset Formula 
+\[
+\hat{B}=(X'X)^{-1}XY
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\hat{\Sigma}=\frac{1}{T}\hat{U}'\hat{U}
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\hat{U}=Y-X\hat{B}
+\]
+
+\end_inset
+
+Under the regularity condition, we have
+\begin_inset Formula 
+\[
+\sqrt{T}(\hat{B}-B)\rightarrow_{d}\mathbb{N}(0,M^{-1}\otimes\Sigma)
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\frac{X'X}{T}\rightarrow_{p}M
+\]
+
+\end_inset
+
+For a large 
+\begin_inset Formula $T$
+\end_inset
+
+, we may approximate
+\begin_inset Formula 
+\[
+\hat{B}\approx_{d}\mathbb{N}(B,\hat{\Omega})
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\begin{align*}
+\hat{\Omega} & =\frac{1}{T}(M^{-1}\otimes\hat{\Sigma})\\
+ & =(X'X)^{-1}\otimes\hat{\Sigma}
+\end{align*}
+
+\end_inset
+
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.f"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ presents the estimates of 
+\begin_inset Formula $\alpha_{i}$
+\end_inset
+
+ and 
+\begin_inset Formula $\beta_{i,M}$
+\end_inset
+
+ and standard errors on them.
+ 
+\begin_inset Float table
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Results for the multivariate regression
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.f"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This table shows results for the multivariate regression.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q1.f.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+The results of hypothesis testing for decile portfolios from 1 to 10 is
+ reported in Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.f"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ For decile portfolio 
+\begin_inset Formula $i$
+\end_inset
+
+, I compute 
+\emph on
+t
+\emph default
+-ratio
+\begin_inset Formula 
+\[
+t(\hat{\alpha}_{i})=\frac{\hat{\alpha}_{i}-\alpha_{0}}{\sqrt{\hat{\Omega}_{i,i}}}
+\]
+
+\end_inset
+
+and evaluate their two-sided 
+\emph on
+p
+\emph default
+-values from 
+\begin_inset Formula $\mathbb{N}(0,1)$
+\end_inset
+
+ under 
+\begin_inset Formula $H_{0}:\alpha_{0}=0$
+\end_inset
+
+.
+ Except the decile 1 portfolio, the null hypotheses are not rejected at
+ 5 percent of significance.
+\end_layout
+
+\begin_layout Enumerate
+For Fama-Macbeth regression, I employ 
+\begin_inset Formula $\hat{\beta}_{i,M}$
+\end_inset
+
+ estimated from part (f).
+ A cross-sectional 
+\begin_inset Formula $R^{2}$
+\end_inset
+
+ is calculated as
+\begin_inset Formula 
+\[
+R^{2}=\frac{\sum(\hat{\lambda}{}_{0,FM}+\hat{\lambda}_{M,FM}\hat{\beta}_{i,M})^{2}}{\sum\hat{\mu}_{i}^{2}}
+\]
+
+\end_inset
+
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.h"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports the results.
+ The CAPM predicts 
+\begin_inset Formula $\lambda_{0}=0$
+\end_inset
+
+.
+ By the rule of thumb, we cannot reject the null hypothesis 
+\begin_inset Formula $H_{0}:\lambda_{0}=0$
+\end_inset
+
+, suggesting the CAPM holds in the data.
+ Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:1.h"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ show the relationships between actual and predicted mean excess returns.
+ The CAPM also predicts a linear relationship between beta and excess returns.
+ While decile 1 portfolio yields higher returns than the model predicts
+ (
+\emph on
+size anomaly
+\emph default
+), beta and excess returns seem to have a well-fitted linear relationship.
+ 
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Results for Fama-Macbeth estimator
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.h"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This table shows results for Fama-Macbeth estimator.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q1.h.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/figure/HW3/Q1.h.1.pdf
+	width 48text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/figure/HW3/Q1.h.2.pdf
+	width 48text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cross-sectional regressions
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:1.h"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This figure shows results of the cross-sectional regression.
+ On the left hand side, I plot the observations in regression and the regression
+ line (dashed line).
+ On the right hand side, I plot the actual mean excess returns versus predicted
+ mean excess returns from the model.
+ The dashed line represents a 45-degree line.
+ Labels denote deciles of portfolios.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.i.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ report the estimates of 
+\begin_inset Formula $\beta_{i,G}$
+\end_inset
+
+.
+ Further, Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.i.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ report the results for Fama-Macbeth regression.
+ Note
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}_{t}M_{t+1}R_{t+1} & =\mathbb{E}_{t}M_{t+1}^{2}\text{cov}_{t}(R_{M,t+1},R_{t+1})+\frac{1}{R_{f,t+1}}\mathbb{E}_{t}R_{t+1}\\
+ & =1
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\mathbb{E}_{t}M_{t+1}^{2}\text{var}_{t}(R_{M,t+1})+\frac{1}{R_{f,t+1}}\mathbb{E}_{t}R_{M,t+1}=1
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\mathbb{E}_{t}R_{t+1}-R_{f,t+1} & =-R_{f,t+1}\mathbb{E}_{t}M_{t+1}^{2}\text{cov}_{t}(R_{M,t+1},R_{t+1})\\
+ & =(\mathbb{E}_{t}R_{M,t+1}-R_{f,t+1})\beta_{M}
+\end{align*}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\beta_{M}=\frac{\text{cov}_{t}(R_{M,t+1},R_{t+1})}{\text{var}_{t}(R_{M,t+1})}
+\]
+
+\end_inset
+
+Motivated by the consumption-based CAPM model, suppose
+\begin_inset Formula 
+\[
+M_{t}=\phi(G_{t})
+\]
+
+\end_inset
+
+Under the regularity condition (e.g., CRRA with 
+\begin_inset Formula $\gamma\geq0$
+\end_inset
+
+), it is natural to expect
+\begin_inset Formula 
+\[
+G_{t}\uparrow\Rightarrow M_{t}\downarrow
+\]
+
+\end_inset
+
+Hence, 
+\begin_inset Formula $\beta_{i,G}$
+\end_inset
+
+ would be negatively priced.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:1.i.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ shows that this is the case.
+ Moreover, Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:1.i"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ suggests that a fit of the model is better when we consider the consumption
+ growth rather than the market return.
+ 
+\begin_inset Float table
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Results for the multivariate regression: consumption growth
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.i.1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This table shows results for the multivariate regression.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q1.i.1.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Results for Fama-Macbeth estimator: consumption growth
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:1.i.2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This table shows results for Fama-Macbeth estimator.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q1.i.2.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Float figure
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/figure/HW3/Q1.i.1.pdf
+	width 48text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/figure/HW3/Q1.i.2.pdf
+	width 48text%
+
+\end_inset
+
+
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Cross-sectional regressions: consumption growth
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:1.i"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This figure shows results of the cross-sectional regression.
+ On the left hand side, I plot the observations in regression and the regression
+ line (dashed line).
+ On the right hand side, I plot the actual mean excess returns versus predicted
+ mean excess returns from the model.
+ The dashed line represents a 45-degree line.
+ Labels denote deciles of portfolios.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.a"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ presents the means and the standard deviations of monthly returns of 
+\begin_inset Formula $5\times5$
+\end_inset
+
+ portfolios and the zero cost portfolios during the period 196307–.
+ When we eyeball the table, it seems that small stocks yield higher returns
+ than large stocks for each BM decile; High BM stocks yield higher returns
+ than Low BM stocks for each size decile.
+ Moreover, small stocks show higher standard deviations than large stocks
+ for each BM decile; High BM stocks show lower standard deviations than
+ Low BM stocks for each size decile.
+ Consistent with the above observations, means of SMB and HML portfolios
+ show positive monthly return, which is comparable to that of the excess
+ market return.
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+The means and the standard deviations
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:2.a"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This table reports the means and the standard deviations of 
+\begin_inset Formula $5\times5$
+\end_inset
+
+ portfolios and the zero cost portfolios.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+means for the 
+\begin_inset Formula $5\times5$
+\end_inset
+
+ portfolios
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.a.1.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+standard deviations for the 
+\begin_inset Formula $5\times5$
+\end_inset
+
+ portfolios
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.a.2.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+means and standard deviations of the zero cost portfolios
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.a.3.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Consider a multivariate regression model
+\begin_inset Formula 
+\[
+Y=XB+U
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+Y=[r_{1},\cdots,r_{N}]_{T\times N}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+X=[\iota,F_{1},\cdots,F_{L}]_{T\times L}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+B=\begin{bmatrix}\alpha_{1} & \alpha_{2} & \cdots & \alpha_{N}\\
+\beta_{11} & \beta_{21} &  & \beta_{N1}\\
+\beta_{21} & \beta_{22} &  & \beta_{N2}\\
+\vdots & \vdots &  & \vdots\\
+\beta_{L1} & \beta_{L2} &  & \beta_{NL}
+\end{bmatrix}_{L\times N}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+U=[u_{1},\cdots,u_{N}]_{T\times N}
+\]
+
+\end_inset
+
+Assume
+\begin_inset Formula 
+\[
+\text{var}U=I\otimes\Sigma
+\]
+
+\end_inset
+
+The LS estimate yields
+\begin_inset Formula 
+\[
+\hat{B}=(X'X)^{-1}X'Y
+\]
+
+\end_inset
+
+and
+\begin_inset Formula 
+\[
+\hat{\Sigma}=\hat{U}'\hat{U}/T
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\hat{U}=Y-X\hat{B}
+\]
+
+\end_inset
+
+Under the regularity condition, we have
+\begin_inset Formula 
+\[
+\sqrt{T}(\hat{B}-B)\rightarrow_{d}\mathbb{N}(0,M^{-1}\otimes\Sigma)
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+\frac{X'X}{T}\rightarrow_{p}M
+\]
+
+\end_inset
+
+For a large 
+\begin_inset Formula $T$
+\end_inset
+
+, we may approximate
+\begin_inset Formula 
+\[
+\hat{B}\approx_{d}\mathbb{N}(B,(X'X)^{-1}\otimes\hat{\Sigma})
+\]
+
+\end_inset
+
+Therefore, I compute
+\begin_inset Formula 
+\[
+\hat{\alpha}=\hat{B}_{1,\cdot}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\text{se}(\hat{\alpha})=\text{diag}((X'X)^{-1}\otimes\hat{\Sigma})_{1:25,1:25}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+t(\hat{\alpha}_{i})=\frac{\hat{\alpha}_{i}}{\text{se}(\hat{\alpha}_{i})}
+\]
+
+\end_inset
+
+(individually) evaluate their two-sided 
+\emph on
+p
+\emph default
+-values from 
+\begin_inset Formula $\mathbb{N}(0,1)$
+\end_inset
+
+ under 
+\begin_inset Formula $H_{0}:\alpha_{i0}=0$
+\end_inset
+
+.
+ Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.b"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports 
+\begin_inset Formula $\hat{\alpha}$
+\end_inset
+
+ from the market model.
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Estimates from the time-series regression: the market model
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:2.b"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This table reports 
+\begin_inset Formula $\hat{\alpha}$
+\end_inset
+
+ from the market model.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\hat{\alpha}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.b.1.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+se(
+\begin_inset Formula $\alpha$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.b.2.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(\hat{\alpha})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.b.3.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $p$
+\end_inset
+
+-value
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.b.4.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Consider a multivariate regression model
+\begin_inset Formula 
+\[
+Y=XB+U
+\]
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+Y=[r_{1},\cdots,r_{N}]_{T\times N}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+X=[\iota,F_{1},\cdots,F_{L}]_{T\times L}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+B=\begin{bmatrix}\alpha_{1} & \alpha_{2} & \cdots & \alpha_{N}\\
+\beta_{11} & \beta_{21} &  & \beta_{N1}\\
+\beta_{21} & \beta_{22} &  & \beta_{N2}\\
+\vdots & \vdots &  & \vdots\\
+\beta_{L1} & \beta_{L2} &  & \beta_{NL}
+\end{bmatrix}_{L\times N}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+U=[u_{1},\cdots,u_{N}]_{T\times N}
+\]
+
+\end_inset
+
+Assume
+\begin_inset Formula 
+\[
+\text{var}U=I\otimes\Sigma
+\]
+
+\end_inset
+
+Under the normality assumption, Gibbons, Ross, and Shanken (1989, ETCA)
+ show that
+\begin_inset Formula 
+\begin{align*}
+GRS & \equiv\frac{T-N-L}{N}\frac{\hat{\alpha}'\hat{\Sigma}^{-1}\hat{\alpha}}{1+\hat{\mu}'\hat{\Omega}^{-1}\hat{\mu}}\\
+ & =_{d}F_{N,T-N-L}
+\end{align*}
+
+\end_inset
+
+where
+\begin_inset Formula 
+\[
+T:\text{time}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+N:\text{\# of assets}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+L:\text{\# of factors}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{B}=(X'X)^{-1}X'Y
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\alpha}=\hat{B}_{1,\cdot}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{U}=Y-X\hat{B}
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\Sigma}=\hat{U}'\hat{U}/(T-1-L)
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\mu}=[\bar{F}_{1},\cdots,\bar{F}_{L}]'
+\]
+
+\end_inset
+
+
+\begin_inset Formula 
+\[
+\hat{\Omega}=[F_{1},\cdots,F_{L}]'[F_{1},\cdots,F_{L}]/(T-1)
+\]
+
+\end_inset
+
+Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.c"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports the results for GRS test.
+ 
+\begin_inset Formula $F$
+\end_inset
+
+- statistic and 
+\begin_inset Formula $p$
+\end_inset
+
+-value presented in line 1 of Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.c"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ show that the null hypothesis that the alpha are jointly zero is rejected.
+ 
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+GRS tests
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:2.c"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This table reports 
+\begin_inset Formula $F$
+\end_inset
+
+-statistics of Gibbons, Ross, and Shanken (1989) for the market, FF3, and
+ FF5 models.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.c.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_deeper
+\begin_layout Enumerate
+FF3: Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.d.1"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports 
+\begin_inset Formula $\hat{\alpha}$
+\end_inset
+
+ from the FF3 model.
+ The result for GRS test can be found in line 2 of Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.c"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ FF3 model yields smaller 
+\begin_inset Formula $F$
+\end_inset
+
+-statistic than the market model, but the null hypothesis is still rejected.
+ 
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Estimates from the time-series regression: FF3
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:2.d.1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This table reports 
+\begin_inset Formula $\hat{\alpha}$
+\end_inset
+
+ from the FF3 model.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\hat{\alpha}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.d.a1.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+se(
+\begin_inset Formula $\alpha$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.d.a2.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(\hat{\alpha})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.d.a3.tex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $p$
+\end_inset
+
+-value
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.d.a4.tex"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+FF5: Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.d.2"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ reports 
+\begin_inset Formula $\hat{\alpha}$
+\end_inset
+
+ from the FF5 model.
+ The result for GRS test can be found in line 3 of Table 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "tab:2.c"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+.
+ FF5 model yields smaller 
+\begin_inset Formula $F$
+\end_inset
+
+-statistic than the market model and FF3 model, but the null hypothesis
+ is still rejected.
+\begin_inset Float table
+wide false
+sideways false
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Estimates from the time-series regression: FF5
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "tab:2.d.2"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This table reports 
+\begin_inset Formula $\hat{\alpha}$
+\end_inset
+
+ from the FF5 model.
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $\hat{\alpha}$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.d.b1.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+se(
+\begin_inset Formula $\alpha$
+\end_inset
+
+)
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.d.b2.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $t(\hat{\alpha})$
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.d.b3.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset VSpace defskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset Float table
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+\begin_inset Formula $p$
+\end_inset
+
+-value
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\align center
+\begin_inset CommandInset include
+LatexCommand input
+filename "/Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/tabs/HW3/Q2.d.b4.tex"
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Enumerate
+Figure 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "fig:2.e"
+plural "false"
+caps "false"
+noprefix "false"
+
+\end_inset
+
+ plots the actual versus predicted mean excess returns.
+ Trivially, residuals seem to be smaller as we include more factors in the
+ model.
+\begin_inset Float figure
+wide false
+sideways true
+status collapsed
+
+\begin_layout Plain Layout
+\begin_inset Graphics
+	filename /Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/figure/HW3/Q2.e.1.pdf
+	width 32text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/figure/HW3/Q2.e.2.pdf
+	width 32text%
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename /Users/apple/Courseworks/KelleyPhD/2020Spring/FIN625/HW/output/figure/HW3/Q2.e.3.pdf
+	width 32text%
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+Time-series regressions
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "fig:2.e"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+This figure plots the actual mean excess returns versus predicted mean excess
+ returns from the market, FF3, and FF5 models.
+ The dashed line represents a 45-degree line.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_deeper
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section*
+\start_of_appendix
+Appendix
+\end_layout
+
+\begin_layout Standard
+For R codes used to produce above results, see 
+\begin_inset Flex URL
+status collapsed
+
+\begin_layout Plain Layout
+
+https://github.com/ysugk/Course-FIN625/tree/master/HW/code
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\end_body
+\end_document
